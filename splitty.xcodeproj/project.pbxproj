@@ -13,6 +13,7 @@
 		F9C19B2D2131E4CB001666BD /* splitty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B2B2131E4CB001666BD /* splitty.xcdatamodeld */; };
 		F9C19B2F2131E4CC001666BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B2E2131E4CC001666BD /* Assets.xcassets */; };
 		F9C19B322131E4CC001666BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B302131E4CC001666BD /* LaunchScreen.storyboard */; };
+		F9C19B412131F042001666BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C19B402131F042001666BD /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		F9C19B2E2131E4CC001666BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9C19B312131E4CC001666BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9C19B332131E4CC001666BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9C19B3E2131F03C001666BD /* splitty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = splitty.entitlements; sourceTree = "<group>"; };
+		F9C19B402131F042001666BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C19B412131F042001666BD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +49,7 @@
 				F9C19B392131E4F2001666BD /* View Controllers */,
 				F9C19B232131E4CB001666BD /* splitty */,
 				F9C19B222131E4CB001666BD /* Products */,
+				F9C19B3F2131F042001666BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +64,7 @@
 		F9C19B232131E4CB001666BD /* splitty */ = {
 			isa = PBXGroup;
 			children = (
+				F9C19B3E2131F03C001666BD /* splitty.entitlements */,
 				F9C19B2E2131E4CC001666BD /* Assets.xcassets */,
 				F9C19B302131E4CC001666BD /* LaunchScreen.storyboard */,
 				F9C19B332131E4CC001666BD /* Info.plist */,
@@ -73,6 +79,14 @@
 				F9C19B262131E4CB001666BD /* ViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F9C19B3F2131F042001666BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9C19B402131F042001666BD /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +122,14 @@
 				TargetAttributes = {
 					F9C19B202131E4CB001666BD = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -315,14 +337,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = splitty/splitty.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X872NB7KGG;
+				DEVELOPMENT_TEAM = MXGFXQ4GNJ;
 				INFOPLIST_FILE = splitty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.pranj.splitty;
+				PRODUCT_BUNDLE_IDENTIFIER = co.pranj.splittyapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -333,14 +356,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = splitty/splitty.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X872NB7KGG;
+				DEVELOPMENT_TEAM = MXGFXQ4GNJ;
 				INFOPLIST_FILE = splitty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.pranj.splitty;
+				PRODUCT_BUNDLE_IDENTIFIER = co.pranj.splittyapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
