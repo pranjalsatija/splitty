@@ -40,6 +40,9 @@
 		F9C19B182131E4CB001666BD = {
 			isa = PBXGroup;
 			children = (
+				F9C19B242131E4CB001666BD /* AppDelegate.swift */,
+				F9C19B282131E4CB001666BD /* Main.storyboard */,
+				F9C19B392131E4F2001666BD /* View Controllers */,
 				F9C19B232131E4CB001666BD /* splitty */,
 				F9C19B222131E4CB001666BD /* Products */,
 			);
@@ -56,15 +59,20 @@
 		F9C19B232131E4CB001666BD /* splitty */ = {
 			isa = PBXGroup;
 			children = (
-				F9C19B242131E4CB001666BD /* AppDelegate.swift */,
-				F9C19B262131E4CB001666BD /* ViewController.swift */,
-				F9C19B282131E4CB001666BD /* Main.storyboard */,
 				F9C19B2E2131E4CC001666BD /* Assets.xcassets */,
 				F9C19B302131E4CC001666BD /* LaunchScreen.storyboard */,
 				F9C19B332131E4CC001666BD /* Info.plist */,
 				F9C19B2B2131E4CB001666BD /* splitty.xcdatamodeld */,
 			);
 			path = splitty;
+			sourceTree = "<group>";
+		};
+		F9C19B392131E4F2001666BD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9C19B262131E4CB001666BD /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
