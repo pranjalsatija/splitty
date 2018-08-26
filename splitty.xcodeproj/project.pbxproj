@@ -10,8 +10,11 @@
 		F918D7102131FEF900064730 /* NewSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F918D70F2131FEF900064730 /* NewSplit.storyboard */; };
 		F918D7122131FF0200064730 /* PastSplits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F918D7112131FF0200064730 /* PastSplits.storyboard */; };
 		F918D7142131FF0900064730 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F918D7132131FF0900064730 /* People.storyboard */; };
+		F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7152132064400064730 /* UIViewController+Utilities.swift */; };
+		F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7172132143A00064730 /* StoryboardInstantiatable.swift */; };
+		F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7192132181300064730 /* AddItemManuallyViewController.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
-		F9C19B272131E4CB001666BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* ViewController.swift */; };
+		F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* NewSplitViewController.swift */; };
 		F9C19B2A2131E4CB001666BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B282131E4CB001666BD /* Main.storyboard */; };
 		F9C19B2D2131E4CB001666BD /* splitty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B2B2131E4CB001666BD /* splitty.xcdatamodeld */; };
 		F9C19B2F2131E4CC001666BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B2E2131E4CC001666BD /* Assets.xcassets */; };
@@ -23,9 +26,12 @@
 		F918D70F2131FEF900064730 /* NewSplit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewSplit.storyboard; sourceTree = "<group>"; };
 		F918D7112131FF0200064730 /* PastSplits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PastSplits.storyboard; sourceTree = "<group>"; };
 		F918D7132131FF0900064730 /* People.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
+		F918D7152132064400064730 /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
+		F918D7172132143A00064730 /* StoryboardInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiatable.swift; sourceTree = "<group>"; };
+		F918D7192132181300064730 /* AddItemManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemManuallyViewController.swift; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9C19B262131E4CB001666BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F9C19B262131E4CB001666BD /* NewSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSplitViewController.swift; sourceTree = "<group>"; };
 		F9C19B292131E4CB001666BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9C19B2C2131E4CB001666BD /* splitty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = splitty.xcdatamodel; sourceTree = "<group>"; };
 		F9C19B2E2131E4CC001666BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,7 +99,10 @@
 		F9C19B392131E4F2001666BD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F9C19B262131E4CB001666BD /* ViewController.swift */,
+				F918D7172132143A00064730 /* StoryboardInstantiatable.swift */,
+				F918D7152132064400064730 /* UIViewController+Utilities.swift */,
+				F9C19B262131E4CB001666BD /* NewSplitViewController.swift */,
+				F918D7192132181300064730 /* AddItemManuallyViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -209,9 +218,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9C19B272131E4CB001666BD /* ViewController.swift in Sources */,
+				F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */,
+				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
+				F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */,
 				F9C19B2D2131E4CB001666BD /* splitty.xcdatamodeld in Sources */,
 				F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */,
+				F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

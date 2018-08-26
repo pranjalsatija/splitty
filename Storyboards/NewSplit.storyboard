@@ -12,7 +12,7 @@
         <!--New Split-->
         <scene sceneID="B6y-d5-0XN">
             <objects>
-                <viewController id="maX-hH-SLQ" sceneMemberID="viewController">
+                <viewController id="maX-hH-SLQ" customClass="NewSplitViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BsL-2i-DDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,11 @@
                         <viewLayoutGuide key="safeArea" id="1Zy-9m-1VE"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Split" id="A6F-D4-zsD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mJm-NX-2oG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mJm-NX-2oG">
+                            <connections>
+                                <action selector="addItemButtonPressed" destination="maX-hH-SLQ" id="v7f-a3-yJZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -45,6 +49,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iA-Pt-eHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-170" y="27"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="WyC-vn-M86">
+            <objects>
+                <viewController storyboardIdentifier="AddItemManuallyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nEz-8v-smD" customClass="AddItemManuallyViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bkP-d5-fD2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="uwi-QR-Tv4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Item" id="KzG-Oc-z33"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-Wa-wyu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="27"/>
         </scene>
     </scenes>
 </document>
