@@ -8,9 +8,7 @@
 
 import UIKit
 
-class NewSplitViewController: UIViewController, StoryboardInstantiatable {
-
-}
+class NewSplitViewController: UIViewController, StoryboardInstantiatable { }
 
 extension NewSplitViewController {
     @IBAction private func addItemButtonPressed() {
