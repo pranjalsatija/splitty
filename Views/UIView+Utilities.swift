@@ -9,16 +9,16 @@
 import UIKit
 
 extension UIView {
-    func pinToSuperview() {
+    func pinToSuperview(padding: CGFloat = 0) {
         guard let superview = superview else {
             return
         }
 
         [
-            topAnchor.constraint(equalTo: superview.topAnchor),
-            bottomAnchor.constraint(equalTo: superview.bottomAnchor),
-            leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+            topAnchor.constraint(equalTo: superview.topAnchor, constant: padding),
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -padding),
+            leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: padding),
+            trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -padding)
         ].forEach { $0.isActive = true }
     }
 }
