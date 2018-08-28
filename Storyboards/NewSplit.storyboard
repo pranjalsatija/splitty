@@ -65,18 +65,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jw4-S6-JVj" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
-                                <rect key="frame" x="16" y="115.5" width="343" height="101"/>
+                                <rect key="frame" x="16" y="115.5" width="343" height="107"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="y1U-1K-mCQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="101"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="107"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jBx-uo-VOe" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Pce-aK-rdD"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="53"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="horizontalInset">
@@ -88,19 +85,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tnt-8Y-CIE">
-                                                <rect key="frame" x="0.0" y="50" width="343" height="1"/>
+                                                <rect key="frame" x="0.0" y="53" width="343" height="1"/>
                                                 <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="0.25" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="DPS-qd-Gva"/>
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oJC-yw-PnX" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="51" width="343" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="RbL-08-NJs"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="54" width="343" height="53"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="done"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="horizontalInset">
@@ -117,9 +111,6 @@
                                                 </connections>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="101" id="xmi-zt-vnY"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
