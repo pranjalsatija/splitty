@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: Base Class
 @IBDesignable
 class ToggleLabel: UIControl {
     @IBInspectable var isOn: Bool = false {
@@ -20,10 +21,15 @@ class ToggleLabel: UIControl {
         didSet { textLabel?.text = text }
     }
 
+    @IBInspectable var textColor: UIColor? {
+        didSet { textLabel?.textColor = textColor ?? tintColor }
+    }
+
     private var textLabel: UILabel!
     private var toggleControl: ToggleControl!
 }
 
+// MARK: Setup
 extension ToggleLabel {
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -36,7 +42,7 @@ extension ToggleLabel {
     private func configureSubviews() {
         func configureToggleControl() {
             toggleControl = ToggleControl()
-            toggleControl.tintColor = UIColor.black
+            toggleControl.tintColor = tintColor
             toggleControl.translatesAutoresizingMaskIntoConstraints = false
             addSubview(toggleControl)
 
@@ -53,8 +59,10 @@ extension ToggleLabel {
 
         func configureTextLabel() {
             textLabel = UILabel()
+            textLabel.adjustsFontForContentSizeCategory = true
             textLabel.font = font
             textLabel.text = text
+            textLabel.textColor = textColor ?? tintColor
             textLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(textLabel)
 
@@ -68,7 +76,10 @@ extension ToggleLabel {
         configureToggleControl()
         configureTextLabel()
     }
+}
 
+// MARK: User Interaction
+extension ToggleLabel {
     private func update() {
         toggleControl?.isOn = isOn
 
@@ -82,5 +93,5 @@ extension ToggleLabel {
     @objc private func toggled(sender: ToggleControl) {
         isOn = sender.isOn
         sendActions(for: .valueChanged)
-å    }
+    }
 }
