@@ -94,8 +94,8 @@ extension ToggleControl {
         isHighlighted = false
 
         if touches.contains(where: { self.bounds.contains($0.location(in: self)) }) {
-            sendActions(for: .valueChanged)
             isOn.toggle()
+            sendActions(for: .valueChanged)
         }
     }
 
