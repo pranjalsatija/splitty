@@ -18,6 +18,7 @@
 		F918D71D213228E600064730 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D71C213228E600064730 /* Item.swift */; };
 		F918D72221322D7500064730 /* IBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D72121322D7500064730 /* IBDesignableView.swift */; };
 		F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F924C62E2133020C00939D02 /* IBDesignableTextField.swift */; };
+		F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A8AAA213703F60083822A /* HorizontalSeparator.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
 		F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* NewSplitViewController.swift */; };
 		F9C19B2A2131E4CB001666BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B282131E4CB001666BD /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		F918D71C213228E600064730 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F918D72121322D7500064730 /* IBDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableView.swift; sourceTree = "<group>"; };
 		F924C62E2133020C00939D02 /* IBDesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableTextField.swift; sourceTree = "<group>"; };
+		F93A8AAA213703F60083822A /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C19B262131E4CB001666BD /* NewSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSplitViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				F9004A5121349695001DD48A /* UIView+Utilities.swift */,
+				F93A8AAA213703F60083822A /* HorizontalSeparator.swift */,
 				F918D72121322D7500064730 /* IBDesignableView.swift */,
 				F924C62E2133020C00939D02 /* IBDesignableTextField.swift */,
 				F91251642134509A00C43EDA /* ToggleControl.swift */,
@@ -266,6 +269,7 @@
 				F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */,
 				F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */,
 				F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */,
+				F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */,
 				F9F75BB3213308F200108D19 /* CurrencyFormatter.swift in Sources */,
 				F91251652134509A00C43EDA /* ToggleControl.swift in Sources */,
 			);
