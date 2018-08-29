@@ -25,6 +25,7 @@
 		F9C19B2F2131E4CC001666BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B2E2131E4CC001666BD /* Assets.xcassets */; };
 		F9C19B322131E4CC001666BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B302131E4CC001666BD /* LaunchScreen.storyboard */; };
 		F9C19B412131F042001666BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C19B402131F042001666BD /* CloudKit.framework */; };
+		F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DAF7432135066100502F03 /* ToggleLabel.swift */; };
 		F9F75BB3213308F200108D19 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F75BB2213308F200108D19 /* CurrencyFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		F9C19B332131E4CC001666BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9C19B3E2131F03C001666BD /* splitty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = splitty.entitlements; sourceTree = "<group>"; };
 		F9C19B402131F042001666BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F9DAF7432135066100502F03 /* ToggleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleLabel.swift; sourceTree = "<group>"; };
 		F9F75BB2213308F200108D19 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 				F918D72121322D7500064730 /* IBDesignableView.swift */,
 				F924C62E2133020C00939D02 /* IBDesignableTextField.swift */,
 				F91251642134509A00C43EDA /* ToggleControl.swift */,
+				F9DAF7432135066100502F03 /* ToggleLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				F9C19B2D2131E4CB001666BD /* splitty.xcdatamodeld in Sources */,
 				F918D71D213228E600064730 /* Item.swift in Sources */,
 				F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */,
+				F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */,
 				F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */,
 				F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */,
 				F9F75BB3213308F200108D19 /* CurrencyFormatter.swift in Sources */,
