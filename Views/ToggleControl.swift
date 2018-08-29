@@ -90,6 +90,10 @@ extension ToggleControl {
         isHighlighted = true
     }
 
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isHighlighted = false
+    }
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         isHighlighted = false
 
@@ -108,16 +112,10 @@ extension ToggleControl {
     }
 
     private func updateInnerView() {
-        if isOn {
-            self.innerView.alpha = 1
-            UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveLinear], animations: {
-                self.innerView.alpha = 1
-            }, completion: nil)
-        } else {
-            self.innerView.alpha = 0
-            UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveLinear], animations: {
-                self.innerView.alpha = 0
-            }, completion: nil)
-        }
+        let targetAlpha: CGFloat = isOn ? 1 : 0
+        UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
+            self.innerView.alpha = targetAlpha
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
 }
