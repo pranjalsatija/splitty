@@ -16,7 +16,23 @@
                     <view key="view" contentMode="scaleToFill" id="BsL-2i-DDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wpr-vd-xch">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="maX-hH-SLQ" id="c37-KV-okO"/>
+                                    <outlet property="delegate" destination="maX-hH-SLQ" id="c6C-qw-ahb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1Zy-9m-1VE" firstAttribute="bottom" secondItem="Wpr-vd-xch" secondAttribute="bottom" id="AHQ-by-FJD"/>
+                            <constraint firstItem="1Zy-9m-1VE" firstAttribute="trailing" secondItem="Wpr-vd-xch" secondAttribute="trailing" id="AOB-ZJ-FUI"/>
+                            <constraint firstItem="Wpr-vd-xch" firstAttribute="leading" secondItem="1Zy-9m-1VE" secondAttribute="leading" id="P8j-3m-FqT"/>
+                            <constraint firstItem="Wpr-vd-xch" firstAttribute="top" secondItem="1Zy-9m-1VE" secondAttribute="top" id="Tml-iF-sg0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1Zy-9m-1VE"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Split" id="A6F-D4-zsD">
@@ -27,10 +43,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="itemsTableView" destination="Wpr-vd-xch" id="d2y-8O-QeT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw9-8o-n6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="27"/>
+            <point key="canvasLocation" x="712.79999999999995" y="26.53673163418291"/>
         </scene>
         <!--New Split-->
         <scene sceneID="Gp7-JT-WT9">

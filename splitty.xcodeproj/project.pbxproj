@@ -20,6 +20,7 @@
 		F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F924C62E2133020C00939D02 /* IBDesignableTextField.swift */; };
 		F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A8AAA213703F60083822A /* HorizontalSeparator.swift */; };
 		F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97218692137675C00767209 /* NotificationCenter+Utilities.swift */; };
+		F97CB973213B12650061D16A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB972213B12650061D16A /* TableViewCell.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
 		F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* NewSplitViewController.swift */; };
 		F9C19B2A2131E4CB001666BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B282131E4CB001666BD /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		F924C62E2133020C00939D02 /* IBDesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableTextField.swift; sourceTree = "<group>"; };
 		F93A8AAA213703F60083822A /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
 		F97218692137675C00767209 /* NotificationCenter+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Utilities.swift"; sourceTree = "<group>"; };
+		F97CB972213B12650061D16A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C19B262131E4CB001666BD /* NewSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSplitViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				F93A8AAA213703F60083822A /* HorizontalSeparator.swift */,
 				F918D72121322D7500064730 /* IBDesignableView.swift */,
 				F924C62E2133020C00939D02 /* IBDesignableTextField.swift */,
+				F97CB972213B12650061D16A /* TableViewCell.swift */,
 				F91251642134509A00C43EDA /* ToggleControl.swift */,
 				F9DAF7432135066100502F03 /* ToggleLabel.swift */,
 			);
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F918D72221322D7500064730 /* IBDesignableView.swift in Sources */,
+				F97CB973213B12650061D16A /* TableViewCell.swift in Sources */,
 				F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */,
 				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
 				F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */,
