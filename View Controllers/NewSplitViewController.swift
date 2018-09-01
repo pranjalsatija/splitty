@@ -25,10 +25,19 @@ extension NewSplitViewController {
 extension NewSplitViewController {
     private func addItemManually(_ action: UIAlertAction) {
         let destination = instantiate(AddItemManuallyViewController.self)!
+        destination.delegate = self
         navigationController?.pushViewController(destination, animated: true)
     }
 
     private func addItemUsingBarcode(_ action: UIAlertAction) {
 
+    }
+}
+
+extension NewSplitViewController: AddItemManuallyViewControllerDelegate {
+    func addItemManuallyViewController(_ addItemManuallyViewController: AddItemManuallyViewController,
+                                       added item: Item) {
+        addItemManuallyViewController.navigationController?.popToViewController(self, animated: true)
+        
     }
 }

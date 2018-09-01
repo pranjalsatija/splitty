@@ -8,17 +8,33 @@
 
 import UIKit
 
+protocol AddItemManuallyViewControllerDelegate: class {
+    func addItemManuallyViewController(_ addItemManuallyViewController: AddItemManuallyViewController, added item: Item)
+}
+
+// MARK: Base Class
 class AddItemManuallyViewController: UIViewController, NotificationObserver, StoryboardInstantiatable {
+    weak var delegate: AddItemManuallyViewControllerDelegate?
     var notificationObservers = [Any]()
 
+    private var isFormValid = false {
+        didSet {
+            doneButton.isEnabled = isFormValid
+        }
+    }
+
+    @IBOutlet weak private var doneButton: UIBarButtonItem!
     @IBOutlet weak private var itemNameTextField: UITextField!
     @IBOutlet weak private var peopleStackView: UIStackView!
     @IBOutlet weak private var priceTextField: UITextField!
     @IBOutlet weak private var scrollViewBottomConstraint: NSLayoutConstraint!
+    private var peopleToggleLabels: [ToggleLabel]!
 }
 
+// MARK: Setup
 extension AddItemManuallyViewController {
     override func viewDidLoad() {
+        isFormValid = false
         configureKeyboardHandlers()
         configurePeopleStackView()
     }
@@ -47,26 +63,47 @@ extension AddItemManuallyViewController {
 
     private func configurePeopleStackView() {
         // TODO: Load the names from the database.
-        let subviews: [ToggleLabel] = ["Paul", "Ethan", "Pranjal", "Dylan"].map {(person) in
+        peopleToggleLabels = ["Paul", "Ethan", "Pranjal", "Dylan"].map {(person) in
             let toggleLabel = ToggleLabel()
             toggleLabel.text = person
             toggleLabel.textColor = .black
             toggleLabel.tintColor = UIColor(white: 86 / 255, alpha: 1)
+            toggleLabel.addTarget(self, action: #selector(formDidUpdate), for: .valueChanged)
             return toggleLabel
         }
 
-        for subview in subviews.dropLast() {
-            peopleStackView.addArrangedSubview(subview)
+        for personToggleLabel in peopleToggleLabels.dropLast() {
+            peopleStackView.addArrangedSubview(personToggleLabel)
             peopleStackView.addArrangedSubview(HorizontalSeparator())
         }
 
-        if let last = subviews.last {
+        if let last = peopleToggleLabels.last {
             peopleStackView.addArrangedSubview(last)
         }
     }
 }
 
+// MARK: User Interaction
 private extension AddItemManuallyViewController {
+    @IBAction func doneButtonPressed() {
+        guard let itemName = itemNameTextField.text, let priceString = priceTextField.text,
+              let price = CurrencyFormatter.number(from: priceString) else {
+            return
+        }
+
+        let item = Item(name: itemName, price: price.doubleValue)
+        delegate?.addItemManuallyViewController(self, added: item)
+    }
+
+    @IBAction func formDidUpdate() {
+        guard let itemName = itemNameTextField.text, let price = priceTextField.text else {
+            isFormValid = false
+            return
+        }
+
+        isFormValid = !itemName.isEmpty && !price.isEmpty && peopleToggleLabels.contains { $0.isOn }
+    }
+
     @IBAction func itemNameTextFieldDidReturn() {
         priceTextField.becomeFirstResponder()
     }

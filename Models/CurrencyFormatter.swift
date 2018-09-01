@@ -21,6 +21,10 @@ struct CurrencyFormatter {
 }
 
 extension CurrencyFormatter {
+    static func number(from string: String) -> NSNumber? {
+        return numberFormatter.number(from: string)
+    }
+
     static func reformat(_ string: String) -> String {
         guard let number = numberFormatter.number(from: string) else {
             return string
