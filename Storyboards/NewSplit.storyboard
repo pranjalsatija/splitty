@@ -53,12 +53,12 @@
         <!--Add Item-->
         <scene sceneID="WyC-vn-M86">
             <objects>
-                <viewController storyboardIdentifier="AddItemManuallyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nEz-8v-smD" customClass="AddItemManuallyViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddItemManuallyViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nEz-8v-smD" customClass="AddItemManuallyViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bkP-d5-fD2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-k5-XzK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-k5-XzK">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqF-Nq-I0Q">
@@ -73,7 +73,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yX4-Tj-TIu">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="107"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-3b-4Pt" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-3b-4Pt" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="53"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -86,6 +86,10 @@
                                                                 <real key="value" value="16"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="itemNameTextFieldDidEndEditing" destination="nEz-8v-smD" eventType="editingDidEnd" id="Tee-Gf-Gh1"/>
+                                                            <action selector="itemNameTextFieldDidReturn" destination="nEz-8v-smD" eventType="primaryActionTriggered" id="40K-b2-dyX"/>
+                                                        </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiJ-dR-z2c">
                                                         <rect key="frame" x="0.0" y="53" width="343" height="1"/>
@@ -94,7 +98,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="fcU-5z-r5u"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPR-4R-Rlf" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$Price" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPR-4R-Rlf" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="54" width="343" height="53"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -108,9 +112,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="priceTextFieldChanged:" destination="nEz-8v-smD" eventType="editingDidBegin" id="I3o-67-PgH"/>
-                                                            <action selector="priceTextFieldChanged:" destination="nEz-8v-smD" eventType="editingChanged" id="oEI-hc-MvW"/>
-                                                            <action selector="priceTextFieldEndedEditing:" destination="nEz-8v-smD" eventType="editingDidEnd" id="OeD-bN-nqm"/>
+                                                            <action selector="priceTextFieldChanged" destination="nEz-8v-smD" eventType="editingChanged" id="Brf-H9-JkN"/>
+                                                            <action selector="priceTextFieldEndedEditing" destination="nEz-8v-smD" eventType="editingDidEnd" id="kVx-Zc-hAv"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -181,7 +184,7 @@
                                     <constraint firstItem="CqF-Nq-I0Q" firstAttribute="leading" secondItem="GLA-rV-DaD" secondAttribute="leading" id="sRf-lE-RCE"/>
                                     <constraint firstItem="fik-1Z-OsA" firstAttribute="top" secondItem="CqF-Nq-I0Q" secondAttribute="bottom" constant="4" id="sys-MO-dkH"/>
                                     <constraint firstItem="CqF-Nq-I0Q" firstAttribute="centerX" secondItem="fdz-k5-XzK" secondAttribute="centerX" id="t8a-Ng-W5J"/>
-                                    <constraint firstAttribute="bottom" secondItem="GLA-rV-DaD" secondAttribute="bottom" id="v8h-FF-5Xa"/>
+                                    <constraint firstAttribute="bottom" secondItem="GLA-rV-DaD" secondAttribute="bottom" constant="16" id="v8h-FF-5Xa"/>
                                     <constraint firstItem="GLA-rV-DaD" firstAttribute="top" secondItem="THc-8P-9Bh" secondAttribute="bottom" constant="4" id="vbd-9j-Upn"/>
                                     <constraint firstItem="THc-8P-9Bh" firstAttribute="top" secondItem="fik-1Z-OsA" secondAttribute="bottom" constant="16" id="xhF-Xp-QpX"/>
                                 </constraints>
@@ -202,7 +205,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="itemNameTextField" destination="mBE-3b-4Pt" id="d03-6j-EoH"/>
                         <outlet property="peopleStackView" destination="UEP-XB-ehJ" id="Ml1-M8-11y"/>
+                        <outlet property="priceTextField" destination="JPR-4R-Rlf" id="eoZ-i9-Bd1"/>
+                        <outlet property="scrollViewBottomConstraint" destination="hUN-UH-wJe" id="w1G-L1-M8x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-Wa-wyu" userLabel="First Responder" sceneMemberID="firstResponder"/>

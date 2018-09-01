@@ -1,4 +1,4 @@
 opt_in_rules:
-  trailing_closure
-  vertical_parameter_alignment_on_call
+  - trailing_closure
+  - vertical_parameter_alignment_on_call
   

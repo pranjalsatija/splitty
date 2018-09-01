@@ -108,7 +108,7 @@ extension ToggleControl {
         backgroundColor = targetColor
         UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveLinear], animations: {
             self.layer.backgroundColor = targetColor.cgColor
-        })
+        }, completion: nil)
     }
 
     private func updateInnerView() {
