@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Item {
+struct Item: Codable {
     // var consumers: [People]
     var name: String
     var price: Double

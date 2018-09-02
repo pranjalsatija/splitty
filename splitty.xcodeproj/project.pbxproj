@@ -21,6 +21,8 @@
 		F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A8AAA213703F60083822A /* HorizontalSeparator.swift */; };
 		F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97218692137675C00767209 /* NotificationCenter+Utilities.swift */; };
 		F97CB973213B12650061D16A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB972213B12650061D16A /* TableViewCell.swift */; };
+		F97CB97A213C2E1E0061D16A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB979213C2E1E0061D16A /* List.swift */; };
+		F97CB97C213C2EDF0061D16A /* Codable+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB97B213C2EDF0061D16A /* Codable+Utilities.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
 		F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* NewSplitViewController.swift */; };
 		F9C19B2A2131E4CB001666BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B282131E4CB001666BD /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 		F93A8AAA213703F60083822A /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
 		F97218692137675C00767209 /* NotificationCenter+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Utilities.swift"; sourceTree = "<group>"; };
 		F97CB972213B12650061D16A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F97CB979213C2E1E0061D16A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		F97CB97B213C2EDF0061D16A /* Codable+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Utilities.swift"; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C19B262131E4CB001666BD /* NewSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSplitViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +91,9 @@
 		F918D71B213228DA00064730 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F97CB97B213C2EDF0061D16A /* Codable+Utilities.swift */,
 				F9F75BB2213308F200108D19 /* CurrencyFormatter.swift */,
+				F97CB979213C2E1E0061D16A /* List.swift */,
 				F918D71C213228E600064730 /* Item.swift */,
 			);
 			path = Models;
@@ -276,12 +282,14 @@
 				F97CB973213B12650061D16A /* TableViewCell.swift in Sources */,
 				F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */,
 				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
+				F97CB97A213C2E1E0061D16A /* List.swift in Sources */,
 				F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */,
 				F9004A5221349695001DD48A /* UIView+Utilities.swift in Sources */,
 				F9C19B2D2131E4CB001666BD /* splitty.xcdatamodeld in Sources */,
 				F918D71D213228E600064730 /* Item.swift in Sources */,
 				F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */,
 				F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */,
+				F97CB97C213C2EDF0061D16A /* Codable+Utilities.swift in Sources */,
 				F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */,
 				F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */,
 				F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */,

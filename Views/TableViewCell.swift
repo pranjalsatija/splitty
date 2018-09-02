@@ -56,7 +56,7 @@ class TextTableViewCell: UITableViewCell {
             addSubview(secondaryLabel)
 
             [
-                secondaryLabel.topAnchor.constraint(equalTo: primaryLabel.bottomAnchor, constant: 0),
+                secondaryLabel.topAnchor.constraint(equalTo: primaryLabel.bottomAnchor),
                 secondaryLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
                 secondaryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
                 secondaryLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
