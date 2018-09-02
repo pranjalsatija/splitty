@@ -55,7 +55,7 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.reuseIdentifier, for: indexPath)
         cell.textLabel?.text = list.items[indexPath.row].name
-        cell.detailTextLabel?.text = list.items[indexPath.row].formattedPrice
+        cell.detailTextLabel?.text = list.items[indexPath.row].description
         return cell
     }
 

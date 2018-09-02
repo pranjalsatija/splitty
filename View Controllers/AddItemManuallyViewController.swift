@@ -23,6 +23,8 @@ class AddItemManuallyViewController: UIViewController, NotificationObserver, Sto
         }
     }
 
+    private var toggleLabelToPersonDictionary = [ToggleLabel: Person]()
+
     @IBOutlet weak private var doneButton: UIBarButtonItem!
     @IBOutlet weak private var itemNameTextField: UITextField!
     @IBOutlet weak private var peopleStackView: UIStackView!
@@ -37,6 +39,14 @@ extension AddItemManuallyViewController {
         isFormValid = false
         configureKeyboardHandlers()
         configurePeopleStackView()
+    }
+
+    private func set(_ person: Person, for toggleLabel: ToggleLabel) {
+        toggleLabelToPersonDictionary[toggleLabel] = person
+    }
+
+    private func person(for toggleLabel: ToggleLabel) -> Person? {
+        return toggleLabelToPersonDictionary[toggleLabel]
     }
 
     private func configureKeyboardHandlers() {
@@ -62,13 +72,13 @@ extension AddItemManuallyViewController {
     }
 
     private func configurePeopleStackView() {
-        // TODO: Load the names from the database.
-        peopleToggleLabels = ["Paul", "Ethan", "Pranjal", "Dylan"].map {(person) in
+        peopleToggleLabels = try? Database.retrieve(Person.self).map {(person) in
             let toggleLabel = ToggleLabel()
-            toggleLabel.text = person
+            toggleLabel.text = person.name
             toggleLabel.textColor = .black
             toggleLabel.tintColor = UIColor(white: 86 / 255, alpha: 1)
             toggleLabel.addTarget(self, action: #selector(formDidUpdate), for: .valueChanged)
+            set(person, for: toggleLabel)
             return toggleLabel
         }
 
@@ -91,7 +101,8 @@ private extension AddItemManuallyViewController {
             return
         }
 
-        let item = Item(name: itemName, price: price.doubleValue)
+        let people = peopleToggleLabels.filter { $0.isOn }.compactMap(person)
+        let item = Item(name: itemName, people: people, price: price.doubleValue)
         delegate?.addItemManuallyViewController(self, added: item)
     }
 

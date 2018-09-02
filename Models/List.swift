@@ -22,7 +22,7 @@ struct List: Codable {
             do {
                 try UserDefaults.standard.set(newValue.jsonEncoded(), forKey: "current_list")
             } catch {
-                // TODO: Add a log of some sort.
+                Log.error(error)
             }
         }
     }
