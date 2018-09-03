@@ -12,6 +12,10 @@ extension UIAlertAction {
     static var cancel: UIAlertAction {
         return UIAlertAction(title: "Cancel", style: .cancel)
     }
+
+    static var dismiss: UIAlertAction {
+        return UIAlertAction(title: "Dismiss", style: .cancel)
+    }
 }
 
 extension UIViewController {

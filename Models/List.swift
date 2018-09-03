@@ -6,30 +6,56 @@
 //  Copyright © 2018 Pranjal Satija. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
-struct List: Codable {
+@objc class List: NSManagedObject {
     static var current: List? {
+        let inProgressLists = try? Database.retrieve(List.self, predicate: .init(format: "date == nil"))
+        try? inProgressLists?.dropFirst().forEach(Database.delete)
+        return inProgressLists?.first
+    }
+
+    static var empty: List {
+        return List(date: nil, name: nil, items: [])
+    }
+
+    @NSManaged var date: Date?
+    @NSManaged var name: String?
+    @NSManaged var items: Set<Item>
+
+    private var _itemsArray: [Item]!
+    var itemsArray: [Item] {
         get {
-            if let data = UserDefaults.standard.data(forKey: "current_list") {
-                return try? List.decoded(from: data)
-            } else {
-                return nil
+            if _itemsArray == nil {
+                _itemsArray = Array(items)
             }
+            return _itemsArray
         }
 
         set {
-            do {
-                try UserDefaults.standard.set(newValue.jsonEncoded(), forKey: "current_list")
-            } catch {
-                Log.error(error)
-            }
+            items = Set(newValue)
+            _itemsArray = nil
         }
     }
 
-    static let empty = List(date: nil, name: nil, items: [])
+    convenience init(date: Date?, name: String?, items: Set<Item>) {
+        self.init(context: Database.context)
+        self.date = date
+        self.name = name
+        self.items = items
+    }
+}
 
-    var date: Date?
-    var name: String?
-    var items: [Item]
+extension List {
+    @objc(addItemsObject:)
+    @NSManaged public func addToItems(_ value: Item)
+
+    @objc(removeItemsObject:)
+    @NSManaged public func removeFromItems(_ value: Item)
+
+    @objc(addItems:)
+    @NSManaged public func addToItems(_ values: NSSet)
+
+    @objc(removeItems:)
+    @NSManaged public func removeFromItems(_ values: NSSet)
 }

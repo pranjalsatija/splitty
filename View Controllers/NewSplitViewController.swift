@@ -9,9 +9,9 @@
 import UIKit
 
 class NewSplitViewController: UIViewController, StoryboardInstantiatable {
-    var list = List.current ?? List.empty {
+    var list: List? {
         didSet {
-            List.current = list
+            itemsTableView.reloadData()
         }
     }
 
@@ -22,6 +22,10 @@ extension NewSplitViewController {
     override func viewDidLoad() {
         itemsTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
         itemsTableView.tableFooterView = UIView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        list = .current ?? .empty
     }
 }
 
@@ -54,19 +58,28 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = list.items[indexPath.row].name
-        cell.detailTextLabel?.text = list.items[indexPath.row].description
+
+        guard let list = list else {
+            return cell
+        }
+
+        cell.textLabel?.text = list.itemsArray[indexPath.row].name
+        cell.detailTextLabel?.text = list.itemsArray[indexPath.row].description
         return cell
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
-        list.items.remove(at: indexPath.row)
+        guard let list = list else {
+            return
+        }
+
+        list.itemsArray.remove(at: indexPath.row)
         itemsTableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.items.count
+        return list?.items.count ?? 0
     }
 }
 
@@ -74,7 +87,7 @@ extension NewSplitViewController: AddItemManuallyViewControllerDelegate {
     func addItemManuallyViewController(_ addItemManuallyViewController: AddItemManuallyViewController,
                                        added item: Item) {
         addItemManuallyViewController.navigationController?.popToViewController(self, animated: true)
-        list.items.append(item)
+        list?.itemsArray.append(item)
         itemsTableView.reloadData()
     }
 }

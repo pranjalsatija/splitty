@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wpr-vd-xch">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="maX-hH-SLQ" id="c37-KV-okO"/>
@@ -57,8 +57,8 @@
                 <navigationController id="U5t-Am-uBf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="New Split" id="6ub-mL-TG8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c08-Hc-gFf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="c08-Hc-gFf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -92,13 +92,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fik-1Z-OsA" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="51.5" width="343" height="107"/>
+                                        <rect key="frame" x="16" y="51.5" width="343" height="43"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yX4-Tj-TIu">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="107"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-3b-4Pt" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="53"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
@@ -117,14 +117,14 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiJ-dR-z2c">
-                                                        <rect key="frame" x="0.0" y="53" width="343" height="1"/>
+                                                        <rect key="frame" x="0.0" y="21" width="343" height="1"/>
                                                         <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="0.25" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="fcU-5z-r5u"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$Price" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPR-4R-Rlf" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="54" width="343" height="53"/>
+                                                        <rect key="frame" x="0.0" y="22" width="343" height="21"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="done"/>
@@ -165,13 +165,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THc-8P-9Bh">
-                                        <rect key="frame" x="16" y="174.5" width="343" height="31.5"/>
+                                        <rect key="frame" x="16" y="110.5" width="343" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-rV-DaD" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="210" width="343" height="54"/>
+                                        <rect key="frame" x="16" y="146" width="343" height="54"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEP-XB-ehJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>

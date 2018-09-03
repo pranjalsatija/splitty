@@ -8,25 +8,11 @@
 
 import CoreData
 
-struct Person: Codable, Equatable {
-    static let entityName = "Person"
+@objc class Person: NSManagedObject {
+    @NSManaged var name: String
 
-    let name: String
-}
-
-extension Person: Model {
-    static func with(_ managedObject: NSManagedObject) -> Person? {
-        if let name = managedObject.value(forKey: "name") as? String {
-            return Person(name: name)
-        } else {
-            return nil
-        }
-    }
-
-    func insertManagedObject(into context: NSManagedObjectContext) -> NSManagedObject {
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Person", in: context)
-        let managedObject = NSManagedObject(entity: entityDescription ?? .init(), insertInto: context)
-        managedObject.setValue(name, forKey: "name")
-        return managedObject
+    convenience init(name: String) {
+        self.init(context: Database.context)
+        self.name = name
     }
 }

@@ -12,15 +12,40 @@
         <!--People-->
         <scene sceneID="wis-va-zNz">
             <objects>
-                <viewController id="zU0-BM-dtX" sceneMemberID="viewController">
+                <viewController id="zU0-BM-dtX" customClass="PeopleViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P8D-2H-l1n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Zt-1O-GH6">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zU0-BM-dtX" id="vLn-gU-sAj"/>
+                                    <outlet property="delegate" destination="zU0-BM-dtX" id="WS7-i5-yva"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AiU-qC-ZfF" firstAttribute="bottom" secondItem="0Zt-1O-GH6" secondAttribute="bottom" id="805-lZ-EbD"/>
+                            <constraint firstItem="AiU-qC-ZfF" firstAttribute="trailing" secondItem="0Zt-1O-GH6" secondAttribute="trailing" id="9YR-3y-hgO"/>
+                            <constraint firstItem="0Zt-1O-GH6" firstAttribute="leading" secondItem="AiU-qC-ZfF" secondAttribute="leading" id="Lmi-xN-zAD"/>
+                            <constraint firstItem="0Zt-1O-GH6" firstAttribute="top" secondItem="AiU-qC-ZfF" secondAttribute="top" id="rfa-vQ-yho"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AiU-qC-ZfF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="People" id="fJU-eH-dab"/>
+                    <navigationItem key="navigationItem" title="People" id="fJU-eH-dab">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5qr-Rs-WcO">
+                            <connections>
+                                <action selector="addPersonButtonPressed" destination="zU0-BM-dtX" id="xsP-Dn-Kq8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="peopleTableView" destination="0Zt-1O-GH6" id="Uol-Ab-nw4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTX-G2-dQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,8 +56,8 @@
                 <navigationController id="fT9-yM-iPH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="People" id="9He-Ku-Bcx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gJ2-tL-olC">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gJ2-tL-olC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -41,7 +66,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9U5-q6-SXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-823" y="27"/>
+            <point key="canvasLocation" x="-676" y="78"/>
         </scene>
     </scenes>
 </document>

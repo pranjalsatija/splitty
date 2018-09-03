@@ -72,7 +72,8 @@ extension AddItemManuallyViewController {
     }
 
     private func configurePeopleStackView() {
-        peopleToggleLabels = try? Database.retrieve(Person.self).map {(person) in
+        let sortDescriptor = NSSortDescriptor(keyPath: \Person.name, ascending: true)
+        peopleToggleLabels = try? Database.retrieve(Person.self, sortDescriptors: [sortDescriptor]).map {(person) in
             let toggleLabel = ToggleLabel()
             toggleLabel.text = person.name
             toggleLabel.textColor = .black
@@ -102,7 +103,7 @@ private extension AddItemManuallyViewController {
         }
 
         let people = peopleToggleLabels.filter { $0.isOn }.compactMap(person)
-        let item = Item(name: itemName, people: people, price: price.doubleValue)
+        let item = Item(name: itemName, people: Set(people), price: price.doubleValue)
         delegate?.addItemManuallyViewController(self, added: item)
     }
 

@@ -6,28 +6,38 @@
 //  Copyright © 2018 Pranjal Satija. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
-struct Item: Codable {
-    var name: String
-    var people: [Person]
-    var price: Double
+@objc class Item: NSManagedObject {
+    @NSManaged var name: String
+    @NSManaged var people: Set<Person>
+    @NSManaged var price: Double
 
-    var description: String {
+    private var _peopleArray: [Person]!
+    var peopleArray: [Person] {
+        if _peopleArray == nil {
+            _peopleArray = Array(people)
+        }
+        return _peopleArray
+    }
+
+    override var description: String {
         return "\(formattedPrice) · \(formattedPeople)"
     }
 
     var formattedPeople: String {
-        if people.isEmpty {
-            return ""
-        } else if people.count == 1 {
-            return people[0].name
-        } else if people.count == 2 {
-            return "\(people[0].name) and \(people[1].name)"
+        let sortedPeopleArray = peopleArray.sorted { $0.name < $1.name }
+
+        if sortedPeopleArray.isEmpty {
+            return "Deleted People"
+        } else if sortedPeopleArray.count == 1 {
+            return sortedPeopleArray[0].name
+        } else if sortedPeopleArray.count == 2 {
+            return "\(sortedPeopleArray[0].name) and \(sortedPeopleArray[1].name)"
         } else {
-            let firstPersonName = people.first!.name
-            let lastPersonName = people.last!.name
-            let middlePeople = people.dropFirst().dropLast()
+            let firstPersonName = sortedPeopleArray.first!.name
+            let lastPersonName = sortedPeopleArray.last!.name
+            let middlePeople = sortedPeopleArray.dropFirst().dropLast()
             return firstPersonName + middlePeople.reduce("") { "\($0), \($1.name)" } + ", and \(lastPersonName)"
         }
     }
@@ -35,4 +45,25 @@ struct Item: Codable {
     var formattedPrice: String {
         return CurrencyFormatter.string(from: NSNumber(value: price))
     }
+
+    convenience init(name: String, people: Set<Person>, price: Double) {
+        self.init(context: Database.context)
+        self.name = name
+        self.people = people
+        self.price = price
+    }
+}
+
+extension Item {
+    @objc(addPeopleObject:)
+    @NSManaged public func addToPeople(_ value: Item)
+
+    @objc(removePeopleObject:)
+    @NSManaged public func removeFromPeople(_ value: Item)
+
+    @objc(addPeople:)
+    @NSManaged public func addToPeople(_ values: NSSet)
+
+    @objc(removePeople:)
+    @NSManaged public func removeFromPeople(_ values: NSSet)
 }

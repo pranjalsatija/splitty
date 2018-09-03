@@ -8,16 +8,14 @@
 
 import CoreData
 
-protocol Model {
-    static var entityName: String { get }
-    static func with(_ managedObject: NSManagedObject) -> Self?
-
-    @discardableResult func insertManagedObject(into context: NSManagedObjectContext) -> NSManagedObject
-}
-
 struct Database {
     enum Error: Swift.Error {
+        case invalidObject
         case notReady
+    }
+
+    static var context: NSManagedObjectContext {
+        return container?.viewContext ?? NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     }
 
     static private var container: NSPersistentContainer?
@@ -41,21 +39,35 @@ extension Database {
         try context.save()
     }
 
-    static func insert(_ model: Model) throws {
+    static func delete(_ object: NSManagedObject) throws {
         guard let context = container?.viewContext else {
             throw Error.notReady
         }
 
-        model.insertManagedObject(into: context)
+        context.delete(object)
     }
 
-    static func retrieve<T: Model>(_ model: T.Type) throws -> [T] {
+    static func insert(_ object: NSManagedObject) throws {
         guard let context = container?.viewContext else {
             throw Error.notReady
         }
 
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: model.entityName)
-        let managedObjects = try context.fetch(fetchRequest)
-        return managedObjects.compactMap { model.with($0) }
+        context.insert(object)
+    }
+
+    static func retrieve<T: NSManagedObject>(_ model: T.Type, predicate: NSPredicate? = nil,
+                                             sortDescriptors: [NSSortDescriptor] = []) throws -> [T] {
+        guard let context = container?.viewContext else {
+            throw Error.notReady
+        }
+
+        guard let entityName = T.entity().name else {
+            throw Error.invalidObject
+        }
+
+        let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors
+        return try context.fetch(fetchRequest)
     }
 }

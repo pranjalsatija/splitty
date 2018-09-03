@@ -34,6 +34,7 @@
 		F9C19B412131F042001666BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C19B402131F042001666BD /* CloudKit.framework */; };
 		F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DAF7432135066100502F03 /* ToggleLabel.swift */; };
 		F9EC8D79213C5FAA006820C0 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EC8D78213C5FAA006820C0 /* Logging.swift */; };
+		F9EC8D7B213C770A006820C0 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */; };
 		F9F75BB3213308F200108D19 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F75BB2213308F200108D19 /* CurrencyFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		F9C19B402131F042001666BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F9DAF7432135066100502F03 /* ToggleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleLabel.swift; sourceTree = "<group>"; };
 		F9EC8D78213C5FAA006820C0 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		F9F75BB2213308F200108D19 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 			children = (
 				F918D7192132181300064730 /* AddItemManuallyViewController.swift */,
 				F9C19B262131E4CB001666BD /* NewSplitViewController.swift */,
+				F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				F918D72221322D7500064730 /* IBDesignableView.swift in Sources */,
 				F977CCB6213C547E002FAA67 /* splitty.xcdatamodeld in Sources */,
 				F97CB973213B12650061D16A /* TableViewCell.swift in Sources */,
+				F9EC8D7B213C770A006820C0 /* PeopleViewController.swift in Sources */,
 				F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */,
 				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
 				F97CB97A213C2E1E0061D16A /* List.swift in Sources */,
