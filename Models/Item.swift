@@ -53,17 +53,3 @@ import CoreData
         self.price = price
     }
 }
-
-extension Item {
-    @objc(addPeopleObject:)
-    @NSManaged public func addToPeople(_ value: Item)
-
-    @objc(removePeopleObject:)
-    @NSManaged public func removeFromPeople(_ value: Item)
-
-    @objc(addPeople:)
-    @NSManaged public func addToPeople(_ values: NSSet)
-
-    @objc(removePeople:)
-    @NSManaged public func removeFromPeople(_ values: NSSet)
-}

@@ -10,7 +10,7 @@ import CoreData
 
 @objc class List: NSManagedObject {
     static var current: List? {
-        let inProgressLists = try? Database.retrieve(List.self, predicate: .init(format: "date == nil"))
+        let inProgressLists = try? Database.retrieve(List.self, predicate: NSPredicate(format: "date == nil"))
         try? inProgressLists?.dropFirst().forEach(Database.delete)
         return inProgressLists?.first
     }
@@ -44,18 +44,4 @@ import CoreData
         self.name = name
         self.items = items
     }
-}
-
-extension List {
-    @objc(addItemsObject:)
-    @NSManaged public func addToItems(_ value: Item)
-
-    @objc(removeItemsObject:)
-    @NSManaged public func removeFromItems(_ value: Item)
-
-    @objc(addItems:)
-    @NSManaged public func addToItems(_ values: NSSet)
-
-    @objc(removeItems:)
-    @NSManaged public func removeFromItems(_ values: NSSet)
 }

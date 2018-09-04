@@ -43,7 +43,8 @@ extension PeopleViewController {
 
 extension PeopleViewController {
     @IBAction func addPersonButtonPressed() {
-        let alert = UIAlertController(title: "Add Person", message: "Enter the name of the person you want to add.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add Person", message: "Enter the name of the person you want to add.",
+                                      preferredStyle: .alert)
         alert.addTextField {(textField) in
             textField.placeholder = "Name"
         }
@@ -62,7 +63,8 @@ extension PeopleViewController {
 
     private func addPerson(named name: String) {
         do {
-            let existingPeopleWithName = try Database.retrieve(Person.self, predicate: .init(format: "name == %@", name))
+            let predicateForName = NSPredicate(format: "name == %@", name)
+            let existingPeopleWithName = try Database.retrieve(Person.self, predicate: predicateForName)
             if !existingPeopleWithName.isEmpty {
                 showAlert(title: "Not Allowed", message: "A person with that name already exists.", actions: [.dismiss])
             } else {
