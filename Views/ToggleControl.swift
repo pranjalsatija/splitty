@@ -120,6 +120,7 @@ extension ToggleControl {
         if touches.contains(where: { self.bounds.contains($0.location(in: self)) }) {
             isOn.toggle()
             sendActions(for: .valueChanged)
+            UISelectionFeedbackGenerator().selectionChanged()
         }
     }
 
