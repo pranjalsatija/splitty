@@ -8,12 +8,14 @@
 
 import UIKit
 
+// MARK: Base Class
 class PeopleViewController: UIViewController {
     private var people = [Person]()
 
     @IBOutlet weak private var peopleTableView: UITableView!
 }
 
+// MARK: Setup
 extension PeopleViewController {
     override func viewDidLoad() {
         peopleTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
@@ -41,6 +43,7 @@ extension PeopleViewController {
     }
 }
 
+// MARK: User Interaction
 extension PeopleViewController {
     @IBAction func addPersonButtonPressed() {
         let alert = UIAlertController(title: "Add Person", message: "Enter the name of the person you want to add.",
@@ -78,6 +81,7 @@ extension PeopleViewController {
     }
 }
 
+// MARK: UITableViewDataSource and UITableViewDelegate
 extension PeopleViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

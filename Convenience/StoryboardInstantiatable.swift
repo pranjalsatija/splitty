@@ -9,7 +9,11 @@
 import UIKit
 
 protocol StoryboardInstantiatable {
+    /// The storyboard that should be used for instantiating instances of this view controller.
+    /// If you don't provide anything, `self.storyboard` will be used for conforming instances of `UIViewController`.
     static var storyboardForInstantiation: UIStoryboard? { get }
+
+    /// This view controller's ID in `storyboardForInstantiation`.
     static var storyboardID: String { get }
 }
 

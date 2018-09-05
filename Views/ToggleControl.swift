@@ -31,27 +31,27 @@ class ToggleControl: UIControl {
         didSet { updateInnerView() }
     }
 
+    override var tintColor: UIColor! {
+        didSet { updateTintColor() }
+    }
+
     private var innerView: UIView!
     private var outerView: UIView!
+    private var shouldUpdateConstraints = true
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureSubviews()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureSubviews()
+    }
 }
 
 // MARK: Setup
 extension ToggleControl {
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        updateCornerRadii()
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        if innerView == nil || outerView == nil {
-            configureSubviews()
-        }
-
-        updateCornerRadii()
-    }
-
     private func configureSubviews() {
         func configureOuterView() {
             outerView = UIView()
@@ -59,7 +59,6 @@ extension ToggleControl {
             outerView.layer.borderWidth = borderWidth
             outerView.translatesAutoresizingMaskIntoConstraints = false
             addSubview(outerView)
-            outerView.pinToSuperview()
         }
 
         func configureInnerView() {
@@ -67,7 +66,6 @@ extension ToggleControl {
             innerView.backgroundColor = tintColor
             innerView.translatesAutoresizingMaskIntoConstraints = false
             outerView.addSubview(innerView)
-            innerView.pinToSuperview(padding: internalPadding)
             updateInnerView()
         }
 
@@ -76,11 +74,33 @@ extension ToggleControl {
         updateCornerRadii()
     }
 
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        updateCornerRadii()
+    }
+
+    override func updateConstraints() {
+        super.updateConstraints()
+
+        guard shouldUpdateConstraints else {
+            return
+        }
+
+        innerView?.pinToSuperview(padding: internalPadding)
+        outerView?.pinToSuperview()
+        shouldUpdateConstraints = false
+    }
+
     private func updateCornerRadii() {
         [self, outerView, innerView].compactMap { $0 }.forEach {(view) in
             view.clipsToBounds = true
             view.layer.cornerRadius = min(view.frame.width / 2, view.frame.height / 2)
         }
+    }
+
+    private func updateTintColor() {
+        innerView?.backgroundColor = tintColor
+        outerView?.layer.borderColor = tintColor.cgColor
     }
 }
 

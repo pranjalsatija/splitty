@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: Base Class
 class TextTableViewCell: UITableViewCell {
     static let reuseIdentifier = String(describing: self)
 
@@ -29,8 +30,12 @@ class TextTableViewCell: UITableViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        configureSubviews()
     }
+}
 
+// MARK: Setup
+extension TextTableViewCell {
     private func configureSubviews() {
         func configurePrimaryLabel() {
             primaryLabel = UILabel()

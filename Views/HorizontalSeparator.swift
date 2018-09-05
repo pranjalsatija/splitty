@@ -8,23 +8,38 @@
 
 import UIKit
 
+// MARK: Base Class
+@IBDesignable
 class HorizontalSeparator: UIView {
     @IBInspectable var separatorColor: UIColor = UIColor(white: 151 / 255, alpha: 0.25) {
         didSet { backgroundColor = separatorColor }
     }
 
-    private var constraintsAreConfigured = false
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureConstraints()
+    }
 
-    override func layoutSubviews() {
-        if !constraintsAreConfigured, let superview = superview {
-            backgroundColor = separatorColor
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureConstraints()
+    }
+}
 
-            [
-                heightAnchor.constraint(equalToConstant: 1),
-                widthAnchor.constraint(equalTo: superview.widthAnchor),
-                leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-                trailingAnchor.constraint(equalTo: superview.trailingAnchor)
-            ].forEach { $0.isActive = true }
+// MARK: Setup
+extension HorizontalSeparator {
+    private func configureConstraints() {
+        guard let superview = superview else {
+            return
         }
+
+        backgroundColor = separatorColor
+
+        [
+            heightAnchor.constraint(equalToConstant: 1),
+            widthAnchor.constraint(equalTo: superview.widthAnchor),
+            leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+        ].forEach { $0.isActive = true }
     }
 }

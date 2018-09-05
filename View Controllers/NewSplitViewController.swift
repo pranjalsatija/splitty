@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: Base Class
 class NewSplitViewController: UIViewController, StoryboardInstantiatable {
     var list: List? {
         didSet {
@@ -18,6 +19,7 @@ class NewSplitViewController: UIViewController, StoryboardInstantiatable {
     @IBOutlet weak private var itemsTableView: UITableView!
 }
 
+// MARK: Setup
 extension NewSplitViewController {
     override func viewDidLoad() {
         itemsTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
@@ -29,6 +31,7 @@ extension NewSplitViewController {
     }
 }
 
+// MARK: User Interaction
 private extension NewSplitViewController {
     @IBAction func addItemButtonPressed() {
         let actions: [UIAlertAction] = [
@@ -51,6 +54,7 @@ private extension NewSplitViewController {
     }
 }
 
+// MARK: UITableViewDataSource and UITableViewDelegate
 extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -83,6 +87,7 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: AddItemManuallyViewControllerDelegate
 extension NewSplitViewController: AddItemManuallyViewControllerDelegate {
     func addItemManuallyViewController(_ addItemManuallyViewController: AddItemManuallyViewController,
                                        added item: Item) {

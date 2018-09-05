@@ -8,18 +8,25 @@
 
 import CoreData
 
+// MARK: Base Class
 struct Database {
-    enum Error: Swift.Error {
-        case invalidObject
-        case notReady
-    }
-
     static var context: NSManagedObjectContext {
         return container?.viewContext ?? NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     }
 
     static private var container: NSPersistentContainer?
     static private var isInitialized = false
+}
+
+// MARK: Setup and Teardown
+extension Database {
+    static func commmit() throws {
+        guard let context = container?.viewContext else {
+            throw Error.notReady
+        }
+
+        try context.save()
+    }
 
     static func initialize(completion: @escaping (Swift.Error?) -> Void) {
         container = NSPersistentContainer(name: "splitty")
@@ -30,15 +37,8 @@ struct Database {
     }
 }
 
+// MARK: CRUD
 extension Database {
-    static func commmit() throws {
-        guard let context = container?.viewContext else {
-            throw Error.notReady
-        }
-
-        try context.save()
-    }
-
     static func delete(_ object: NSManagedObject) throws {
         guard let context = container?.viewContext else {
             throw Error.notReady
@@ -69,5 +69,13 @@ extension Database {
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         return try context.fetch(fetchRequest)
+    }
+}
+
+// MARK: Error
+extension Database {
+    enum Error: Swift.Error {
+        case invalidObject
+        case notReady
     }
 }

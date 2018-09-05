@@ -9,12 +9,14 @@
 import CoreData
 
 @objc class List: NSManagedObject {
+    /// The current list, or the list the user is working on but hasn't explicitly saved.
     static var current: List? {
         let inProgressLists = try? Database.retrieve(List.self, predicate: NSPredicate(format: "date == nil"))
         try? inProgressLists?.dropFirst().forEach(Database.delete)
         return inProgressLists?.first
     }
 
+    /// An empty list that can be used as a starting point. If there's no current list, this should be used.
     static var empty: List {
         return List(date: nil, name: nil, items: [])
     }

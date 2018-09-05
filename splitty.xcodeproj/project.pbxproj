@@ -21,9 +21,8 @@
 		F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A8AAA213703F60083822A /* HorizontalSeparator.swift */; };
 		F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97218692137675C00767209 /* NotificationCenter+Utilities.swift */; };
 		F977CCB6213C547E002FAA67 /* splitty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F977CCB4213C547E002FAA67 /* splitty.xcdatamodeld */; };
-		F97CB973213B12650061D16A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB972213B12650061D16A /* TableViewCell.swift */; };
+		F97CB973213B12650061D16A /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB972213B12650061D16A /* TextTableViewCell.swift */; };
 		F97CB97A213C2E1E0061D16A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB979213C2E1E0061D16A /* List.swift */; };
-		F97CB97C213C2EDF0061D16A /* Codable+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB97B213C2EDF0061D16A /* Codable+Utilities.swift */; };
 		F97CB97E213C3D5A0061D16A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB97D213C3D5A0061D16A /* Person.swift */; };
 		F97CB9A1213C46F20061D16A /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB9A0213C46F20061D16A /* Database.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
@@ -53,9 +52,8 @@
 		F93A8AAA213703F60083822A /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
 		F97218692137675C00767209 /* NotificationCenter+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Utilities.swift"; sourceTree = "<group>"; };
 		F977CCB5213C547E002FAA67 /* splitty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = splitty.xcdatamodel; sourceTree = "<group>"; };
-		F97CB972213B12650061D16A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F97CB972213B12650061D16A /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		F97CB979213C2E1E0061D16A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
-		F97CB97B213C2EDF0061D16A /* Codable+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Utilities.swift"; sourceTree = "<group>"; };
 		F97CB97D213C3D5A0061D16A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F97CB9A0213C46F20061D16A /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +113,7 @@
 				F93A8AAA213703F60083822A /* HorizontalSeparator.swift */,
 				F918D72121322D7500064730 /* IBDesignableView.swift */,
 				F924C62E2133020C00939D02 /* IBDesignableTextField.swift */,
-				F97CB972213B12650061D16A /* TableViewCell.swift */,
+				F97CB972213B12650061D16A /* TextTableViewCell.swift */,
 				F91251642134509A00C43EDA /* ToggleControl.swift */,
 				F9DAF7432135066100502F03 /* ToggleLabel.swift */,
 			);
@@ -125,7 +123,6 @@
 		F972186B2137676300767209 /* Convenience */ = {
 			isa = PBXGroup;
 			children = (
-				F97CB97B213C2EDF0061D16A /* Codable+Utilities.swift */,
 				F97218692137675C00767209 /* NotificationCenter+Utilities.swift */,
 				F9004A5121349695001DD48A /* UIView+Utilities.swift */,
 				F918D7152132064400064730 /* UIViewController+Utilities.swift */,
@@ -294,7 +291,7 @@
 			files = (
 				F918D72221322D7500064730 /* IBDesignableView.swift in Sources */,
 				F977CCB6213C547E002FAA67 /* splitty.xcdatamodeld in Sources */,
-				F97CB973213B12650061D16A /* TableViewCell.swift in Sources */,
+				F97CB973213B12650061D16A /* TextTableViewCell.swift in Sources */,
 				F9EC8D7B213C770A006820C0 /* PeopleViewController.swift in Sources */,
 				F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */,
 				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
@@ -305,7 +302,6 @@
 				F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */,
 				F9EC8D79213C5FAA006820C0 /* Logging.swift in Sources */,
 				F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */,
-				F97CB97C213C2EDF0061D16A /* Codable+Utilities.swift in Sources */,
 				F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */,
 				F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */,
 				F97CB97E213C3D5A0061D16A /* Person.swift in Sources */,

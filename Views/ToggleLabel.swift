@@ -11,11 +11,11 @@ import UIKit
 // MARK: Base Class
 @IBDesignable
 class ToggleLabel: UIControl {
+    var font = UIFont.preferredFont(forTextStyle: .body)
+
     @IBInspectable var isOn: Bool = false {
         didSet { update() }
     }
-
-    var font = UIFont.preferredFont(forTextStyle: .body)
 
     @IBInspectable var text: String? {
         didSet { textLabel?.text = text }
@@ -25,35 +25,32 @@ class ToggleLabel: UIControl {
         didSet { textLabel?.textColor = textColor ?? tintColor }
     }
 
+    override var tintColor: UIColor! {
+        didSet { updateColors() }
+    }
+
+    private var shouldUpdateConstraints = true
     private var textLabel: UILabel!
     private var toggleControl: ToggleControl!
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureSubviews()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureSubviews()
+    }
 }
 
 // MARK: Setup
 extension ToggleLabel {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        if textLabel == nil || toggleControl == nil {
-            configureSubviews()
-        }
-    }
-
     private func configureSubviews() {
         func configureToggleControl() {
             toggleControl = ToggleControl()
-            toggleControl.tintColor = tintColor
             toggleControl.translatesAutoresizingMaskIntoConstraints = false
             addSubview(toggleControl)
-
-            [
-                toggleControl.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-                toggleControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-                toggleControl.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-                toggleControl.widthAnchor.constraint(equalToConstant: 36),
-                toggleControl.heightAnchor.constraint(equalToConstant: 36)
-            ].forEach { $0.isActive = true }
-
             toggleControl.addTarget(self, action: #selector(toggled), for: .valueChanged)
         }
 
@@ -62,19 +59,40 @@ extension ToggleLabel {
             textLabel.adjustsFontForContentSizeCategory = true
             textLabel.font = font
             textLabel.text = text
-            textLabel.textColor = textColor ?? tintColor
             textLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(textLabel)
-
-            [
-                textLabel.leadingAnchor.constraint(equalTo: toggleControl.trailingAnchor, constant: 8),
-                textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-                textLabel.centerYAnchor.constraint(equalTo: toggleControl.centerYAnchor)
-            ].forEach { $0.isActive = true }
         }
 
         configureToggleControl()
         configureTextLabel()
+        updateColors()
+    }
+
+    private func updateColors() {
+        textLabel.textColor = textColor ?? tintColor
+        toggleControl.tintColor = tintColor
+    }
+
+    override func updateConstraints() {
+        super.updateConstraints()
+
+        guard shouldUpdateConstraints else {
+            return
+        }
+
+        [
+            toggleControl.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            toggleControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            toggleControl.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            toggleControl.widthAnchor.constraint(equalToConstant: 36),
+            toggleControl.heightAnchor.constraint(equalToConstant: 36)
+        ].forEach { $0.isActive = true }
+
+        [
+            textLabel.leadingAnchor.constraint(equalTo: toggleControl.trailingAnchor, constant: 8),
+            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            textLabel.centerYAnchor.constraint(equalTo: toggleControl.centerYAnchor)
+        ].forEach { $0.isActive = true }
     }
 }
 

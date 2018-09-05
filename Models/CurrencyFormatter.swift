@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: Base Class
 struct CurrencyFormatter {
     static var currencySymbol: String {
         return numberFormatter.currencySymbol ?? "$"
@@ -20,6 +21,7 @@ struct CurrencyFormatter {
     }()
 }
 
+// MARK: Formatting
 extension CurrencyFormatter {
     static func number(from string: String) -> NSNumber? {
         return numberFormatter.number(from: string)

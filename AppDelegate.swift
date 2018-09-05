@@ -29,4 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         try? Database.commmit()
     }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        try? Database.commmit()
+    }
 }

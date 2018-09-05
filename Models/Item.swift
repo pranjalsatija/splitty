@@ -15,16 +15,26 @@ import CoreData
 
     private var _peopleArray: [Person]!
     var peopleArray: [Person] {
-        if _peopleArray == nil {
-            _peopleArray = Array(people)
+        get {
+            if _peopleArray == nil {
+                _peopleArray = Array(people)
+            }
+            return _peopleArray
         }
-        return _peopleArray
+
+        set {
+            people = Set(newValue)
+            _peopleArray = nil
+        }
     }
 
+    /// A displayable string that conveys the price of this item, along with the people it's for.
     override var description: String {
         return "\(formattedPrice) · \(formattedPeople)"
     }
 
+    /// The names of the people this item is for, formatted for display.
+    /// Examples: "Jeff", "Jeff and Bob", "Jeff, Bob, and John", etc.
     var formattedPeople: String {
         let sortedPeopleArray = peopleArray.sorted { $0.name < $1.name }
 
@@ -42,6 +52,7 @@ import CoreData
         }
     }
 
+    /// The price of this item formatted for display.
     var formattedPrice: String {
         return CurrencyFormatter.string(from: NSNumber(value: price))
     }
