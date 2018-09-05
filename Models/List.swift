@@ -23,24 +23,24 @@ import CoreData
 
     @NSManaged var date: Date?
     @NSManaged var name: String?
-    @NSManaged var items: Set<Item>
+    @NSManaged private var items: NSMutableOrderedSet
 
     private var _itemsArray: [Item]!
     var itemsArray: [Item] {
         get {
             if _itemsArray == nil {
-                _itemsArray = Array(items)
+                _itemsArray = items.array as? [Item]
             }
             return _itemsArray
         }
 
         set {
-            items = Set(newValue)
+            items = NSMutableOrderedSet(array: newValue)
             _itemsArray = nil
         }
     }
 
-    convenience init(date: Date?, name: String?, items: Set<Item>) {
+    convenience init(date: Date?, name: String?, items: NSMutableOrderedSet) {
         self.init(context: Database.context)
         self.date = date
         self.name = name

@@ -83,7 +83,7 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list?.items.count ?? 0
+        return list?.itemsArray.count ?? 0
     }
 }
 

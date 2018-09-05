@@ -35,6 +35,7 @@ import CoreData
 
     /// The names of the people this item is for, formatted for display.
     /// Examples: "Jeff", "Jeff and Bob", "Jeff, Bob, and John", etc.
+    /// **Note**: This variable automatically orders the people involved alphabetically.
     var formattedPeople: String {
         let sortedPeopleArray = peopleArray.sorted { $0.name < $1.name }
 
