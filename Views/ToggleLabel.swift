@@ -93,6 +93,8 @@ extension ToggleLabel {
             textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             textLabel.centerYAnchor.constraint(equalTo: toggleControl.centerYAnchor)
         ].forEach { $0.isActive = true }
+
+        shouldUpdateConstraints = false
     }
 }
 

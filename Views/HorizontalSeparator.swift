@@ -15,21 +15,15 @@ class HorizontalSeparator: UIView {
         didSet { backgroundColor = separatorColor }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configureConstraints()
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureConstraints()
-    }
+    private var shouldUpdateConstraints = true
 }
 
 // MARK: Setup
 extension HorizontalSeparator {
-    private func configureConstraints() {
-        guard let superview = superview else {
+    override func updateConstraints() {
+        super.updateConstraints()
+
+        guard shouldUpdateConstraints, let superview = superview else {
             return
         }
 
@@ -41,5 +35,7 @@ extension HorizontalSeparator {
             leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             trailingAnchor.constraint(equalTo: superview.trailingAnchor)
         ].forEach { $0.isActive = true }
+
+        shouldUpdateConstraints = false
     }
 }
