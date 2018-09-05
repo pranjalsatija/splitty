@@ -3,21 +3,20 @@
     <entity name="Item" representedClassName=".Item" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="items" inverseEntity="List" syncable="YES"/>
-        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="items" inverseEntity="Person" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="items" inverseEntity="List" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName=".List" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="lists" inverseEntity="Item" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName=".Person" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="people" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-9" width="128" height="105"/>
-        <element name="List" positionX="-45" positionY="27" width="128" height="90"/>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="List" positionX="219.203125" positionY="-8.828125" width="128" height="90"/>
+        <element name="Person" positionX="-337.6328125" positionY="31.5390625" width="128" height="60"/>
     </elements>
 </model>
