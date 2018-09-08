@@ -19,6 +19,7 @@
 		F918D72221322D7500064730 /* IBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D72121322D7500064730 /* IBDesignableView.swift */; };
 		F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F924C62E2133020C00939D02 /* IBDesignableTextField.swift */; };
 		F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A8AAA213703F60083822A /* HorizontalSeparator.swift */; };
+		F95AE17F2142E331008B0BB7 /* PastSplitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95AE17E2142E330008B0BB7 /* PastSplitsViewController.swift */; };
 		F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97218692137675C00767209 /* NotificationCenter+Utilities.swift */; };
 		F977CCB6213C547E002FAA67 /* splitty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F977CCB4213C547E002FAA67 /* splitty.xcdatamodeld */; };
 		F97CB973213B12650061D16A /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB972213B12650061D16A /* TextTableViewCell.swift */; };
@@ -52,6 +53,7 @@
 		F918D72121322D7500064730 /* IBDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableView.swift; sourceTree = "<group>"; };
 		F924C62E2133020C00939D02 /* IBDesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableTextField.swift; sourceTree = "<group>"; };
 		F93A8AAA213703F60083822A /* HorizontalSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeparator.swift; sourceTree = "<group>"; };
+		F95AE17E2142E330008B0BB7 /* PastSplitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastSplitsViewController.swift; sourceTree = "<group>"; };
 		F97218692137675C00767209 /* NotificationCenter+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Utilities.swift"; sourceTree = "<group>"; };
 		F977CCB5213C547E002FAA67 /* splitty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = splitty.xcdatamodel; sourceTree = "<group>"; };
 		F97CB972213B12650061D16A /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				F918D7192132181300064730 /* AddItemManuallyViewController.swift */,
 				F9C19B262131E4CB001666BD /* NewSplitViewController.swift */,
+				F95AE17E2142E330008B0BB7 /* PastSplitsViewController.swift */,
 				F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */,
 			);
 			path = "View Controllers";
@@ -310,6 +313,7 @@
 				F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */,
 				F9EC8D79213C5FAA006820C0 /* Logging.swift in Sources */,
 				F972186A2137675C00767209 /* NotificationCenter+Utilities.swift in Sources */,
+				F95AE17F2142E331008B0BB7 /* PastSplitsViewController.swift in Sources */,
 				F9DAF7442135066100502F03 /* ToggleLabel.swift in Sources */,
 				F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */,
 				F97CB97E213C3D5A0061D16A /* Person.swift in Sources */,

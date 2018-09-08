@@ -17,15 +17,17 @@ class PeopleViewController: UIViewController {
 
 // MARK: Setup
 extension PeopleViewController {
-    override func viewDidLoad() {
-        peopleTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
-        peopleTableView.tableFooterView = UIView()
-
+    override func viewDidAppear(_ animated: Bool) {
         do {
             try loadData()
         } catch {
             showAlert(title: "Error", message: "We were unable to load the list of people.", actions: [.dismiss])
         }
+    }
+
+    override func viewDidLoad() {
+        peopleTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
+        peopleTableView.tableFooterView = UIView()
     }
 
     private func loadData() throws {

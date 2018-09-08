@@ -12,15 +12,34 @@
         <!--Past Splits-->
         <scene sceneID="b8e-Uv-fiK">
             <objects>
-                <viewController id="wIC-0a-MQx" sceneMemberID="viewController">
+                <viewController id="wIC-0a-MQx" customClass="PastSplitsViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UM1-Nt-PYX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dmt-ky-2E5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wIC-0a-MQx" id="iGz-6A-fAd"/>
+                                    <outlet property="delegate" destination="wIC-0a-MQx" id="akL-7p-MFm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hj5-mD-863" firstAttribute="trailing" secondItem="Dmt-ky-2E5" secondAttribute="trailing" id="L3u-gg-ood"/>
+                            <constraint firstItem="Dmt-ky-2E5" firstAttribute="top" secondItem="Hj5-mD-863" secondAttribute="top" id="cda-IN-odP"/>
+                            <constraint firstItem="Hj5-mD-863" firstAttribute="bottom" secondItem="Dmt-ky-2E5" secondAttribute="bottom" id="dy3-b2-cqZ"/>
+                            <constraint firstItem="Dmt-ky-2E5" firstAttribute="leading" secondItem="Hj5-mD-863" secondAttribute="leading" id="oNH-3U-XIw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hj5-mD-863"/>
                     </view>
                     <navigationItem key="navigationItem" title="Past Splits" id="WWB-LX-B4G"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="splitsTableView" destination="Dmt-ky-2E5" id="x5k-ej-KUj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgh-5y-zsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
