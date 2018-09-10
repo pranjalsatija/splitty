@@ -9,6 +9,10 @@ An app I'm making to help people (mainly college students) split bills easily in
 - [ ] **Barcode scanning.** Currently, users have to enter all product info manually. I want to implement barcode scanning using AVFoundation so they can scan the UPC of a product and have its information auto-populate. The app should also track any changes they make to this information and persist them for future use.
 - [ ] **Empty states.** Table views should show some kind of message (and in some cases, a button) when they have no content to display. This should also apply to the list of people that's shown in `AddItemManuallyViewController`.
 
+## Future Features
+- [ ] **Smart barcode scanning.**: If a user scans a barcode for an item and then changes any of its information, those updates should be saved so the next time the user scans that item, they're automatically applied.
+- [ ] **Group lists.**: Users should be able to connect their phones together using Multipeer Connectivity so they can all work on the same list together.
+
 ## Things to Clean Up
 - [ ] **Localization and string constants.** Splitty currently has string literals strewn all over the codebase to set values for UI elements. I want to replace this with a `Localizable.strings` file soon. Currency values are already formatted using `NSCurrencyFormatter`, so they should be a non-issue. However, I'm unhappy with the way `Models/Item.swift` currently formats the names of its members to produce displayable strings like `A`, `A and B`, `A, B, and C`, etc. I want to clean this up and use something more generalized and localizable.
 - [ ] **Custom view and control configuration.** Splitty has a few custom views and controls. I decided to move all of the logic for creating constraints to create more complex views out of view controllers to make reusable `UIView` subclasses instead. I'm unhappy with how I designed those subclasses to allow configuration of the more basic UIKit elements they're composed of. Most of it is currently done using `didSet` hooks and by using `get {} set {}` to wrap around the real values. I want to fix this and make custom view and control configuration more sensible.
