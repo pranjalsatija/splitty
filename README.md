@@ -10,8 +10,8 @@ An app I'm making to help people (mainly college students) split bills easily in
 - [ ] **Empty states.** Table views should show some kind of message (and in some cases, a button) when they have no content to display. This should also apply to the list of people that's shown in `AddItemManuallyViewController`.
 
 ## Future Features
-- [ ] **Smart barcode scanning.**: If a user scans a barcode for an item and then changes any of its information, those updates should be saved so the next time the user scans that item, they're automatically applied.
-- [ ] **Group lists.**: Users should be able to connect their phones together using Multipeer Connectivity so they can all work on the same list together.
+- [ ] **Smart barcode scanning.** If a user scans a barcode for an item and then changes any of its information, those updates should be saved so the next time the user scans that item, they're automatically applied.
+- [ ] **Group lists.** Users should be able to connect their phones together using Multipeer Connectivity so they can all work on the same list together.
 
 ## Things to Clean Up
 - [ ] **Localization and string constants.** Splitty currently has string literals strewn all over the codebase to set values for UI elements. I want to replace this with a `Localizable.strings` file soon. Currency values are already formatted using `NSCurrencyFormatter`, so they should be a non-issue. However, I'm unhappy with the way `Models/Item.swift` currently formats the names of its members to produce displayable strings like `A`, `A and B`, `A, B, and C`, etc. I want to clean this up and use something more generalized and localizable.
