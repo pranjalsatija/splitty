@@ -29,7 +29,7 @@
 		F99556662140A6FF008C92C4 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99556652140A6FF008C92C4 /* Spacer.swift */; };
 		F9BDA9CF2140CFBC005882AF /* TableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDA9CE2140CFBC005882AF /* TableViewFooterView.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
-		F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* NewSplitViewController.swift */; };
+		F9C19B272131E4CB001666BD /* SplitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */; };
 		F9C19B2A2131E4CB001666BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B282131E4CB001666BD /* Main.storyboard */; };
 		F9C19B2F2131E4CC001666BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B2E2131E4CC001666BD /* Assets.xcassets */; };
 		F9C19B322131E4CC001666BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C19B302131E4CC001666BD /* LaunchScreen.storyboard */; };
@@ -64,7 +64,7 @@
 		F9BDA9CE2140CFBC005882AF /* TableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFooterView.swift; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9C19B262131E4CB001666BD /* NewSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSplitViewController.swift; sourceTree = "<group>"; };
+		F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitDetailViewController.swift; sourceTree = "<group>"; };
 		F9C19B292131E4CB001666BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9C19B2C2131E4CB001666BD /* splitty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = splitty.xcdatamodel; sourceTree = "<group>"; };
 		F9C19B2E2131E4CC001666BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				F918D7192132181300064730 /* ItemDetailViewController.swift */,
-				F9C19B262131E4CB001666BD /* NewSplitViewController.swift */,
+				F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */,
 				F95AE17E2142E330008B0BB7 /* PastSplitsViewController.swift */,
 				F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */,
 			);
@@ -306,7 +306,7 @@
 				F99556662140A6FF008C92C4 /* Spacer.swift in Sources */,
 				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
 				F97CB97A213C2E1E0061D16A /* List.swift in Sources */,
-				F9C19B272131E4CB001666BD /* NewSplitViewController.swift in Sources */,
+				F9C19B272131E4CB001666BD /* SplitDetailViewController.swift in Sources */,
 				F9004A5221349695001DD48A /* UIView+Utilities.swift in Sources */,
 				F9BDA9CF2140CFBC005882AF /* TableViewFooterView.swift in Sources */,
 				F918D71D213228E600064730 /* Item.swift in Sources */,

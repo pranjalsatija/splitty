@@ -47,7 +47,7 @@ extension ItemDetailViewController {
         configureForMode()
     }
 
-    func configureForMode() {
+    private func configureForMode() {
         guard isViewLoaded else {
             return
         }
@@ -156,13 +156,17 @@ private extension ItemDetailViewController {
         }
     }
 
-    @IBAction func formDidUpdate() {
+    @objc func formDidUpdate() {
         guard let itemName = itemNameTextField.text, let price = priceTextField.text else {
             isFormValid = false
             return
         }
 
         isFormValid = !itemName.isEmpty && !price.isEmpty && peopleToggleLabels.contains { $0.isOn }
+    }
+
+    @IBAction func itemNameTextFieldChanged() {
+        formDidUpdate()
     }
 
     @IBAction func itemNameTextFieldDidReturn() {
@@ -184,6 +188,8 @@ private extension ItemDetailViewController {
         } else if !text.hasPrefix(CurrencyFormatter.currencySymbol) {
             priceTextField.text = CurrencyFormatter.currencySymbol + text
         }
+
+        formDidUpdate()
     }
 
     @IBAction func priceTextFieldEndedEditing() {

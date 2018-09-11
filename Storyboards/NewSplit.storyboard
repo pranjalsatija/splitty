@@ -12,7 +12,7 @@
         <!--New Split-->
         <scene sceneID="B6y-d5-0XN">
             <objects>
-                <viewController id="maX-hH-SLQ" customClass="NewSplitViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplitDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="maX-hH-SLQ" customClass="SplitDetailViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BsL-2i-DDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="formDidUpdate" destination="nEz-8v-smD" eventType="editingChanged" id="alE-LE-JnS"/>
+                                                            <action selector="itemNameTextFieldChanged" destination="nEz-8v-smD" eventType="editingChanged" id="e0K-fL-Wft"/>
                                                             <action selector="itemNameTextFieldDidEndEditing" destination="nEz-8v-smD" eventType="editingDidEnd" id="Tee-Gf-Gh1"/>
                                                             <action selector="itemNameTextFieldDidReturn" destination="nEz-8v-smD" eventType="primaryActionTriggered" id="40K-b2-dyX"/>
                                                         </connections>
@@ -137,7 +137,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="formDidUpdate" destination="nEz-8v-smD" eventType="editingChanged" id="FIS-OL-vPk"/>
                                                             <action selector="priceTextFieldChanged" destination="nEz-8v-smD" eventType="editingChanged" id="Brf-H9-JkN"/>
                                                             <action selector="priceTextFieldEndedEditing" destination="nEz-8v-smD" eventType="editingDidEnd" id="kVx-Zc-hAv"/>
                                                         </connections>

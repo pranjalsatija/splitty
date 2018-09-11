@@ -85,4 +85,10 @@ extension TableViewFooterView {
         configureButton()
         frame.size.height = 500
     }
+
+    func removeButton() {
+        stackView.removeArrangedSubview(button)
+        button.removeFromSuperview()
+        button = nil
+    }
 }

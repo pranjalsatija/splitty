@@ -37,14 +37,22 @@ extension PastSplitsViewController {
 }
 
 extension PastSplitsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.reuseIdentifier, for: indexPath)
         cell.textLabel?.text = lists[indexPath.row].name ?? "A List"
         cell.detailTextLabel?.text = lists[indexPath.row].description
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let list = lists[indexPath.row]
+        let destination = instantiate(SplitDetailViewController.self)!
+        destination.mode = .readOnly(list)
+        navigationController?.pushViewController(destination, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lists.count
     }
 }

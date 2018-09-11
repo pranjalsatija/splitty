@@ -1,5 +1,5 @@
 //
-//  NewSplitViewController.swift
+//  SplitDetailViewController.swift
 //  splitty
 //
 //  Created by Pranjal Satija on 8/25/18.
@@ -9,11 +9,27 @@
 import UIKit
 
 // MARK: Base Class
-class NewSplitViewController: UIViewController, StoryboardInstantiatable {
+class SplitDetailViewController: UIViewController, StoryboardInstantiatable {
+    static var storyboardForInstantiation: UIStoryboard? {
+        return UIStoryboard(name: "NewSplit", bundle: .main)
+    }
+
     var list: List! {
+        get {
+            switch mode {
+            case .edit(let list), .readOnly(let list):
+                return list
+            }
+        } set {
+            if case .edit = mode {
+                mode = .edit(newValue)
+            }
+        }
+    }
+
+    var mode: Mode = .edit(nil) {
         didSet {
-            itemsTableView.reloadData()
-            updateItemsTableViewFooter()
+            configureForMode()
         }
     }
 
@@ -22,7 +38,7 @@ class NewSplitViewController: UIViewController, StoryboardInstantiatable {
 }
 
 // MARK: Setup
-extension NewSplitViewController {
+extension SplitDetailViewController {
     override func viewDidAppear(_ animated: Bool) {
         list = .current ?? .empty
         updateItemsTableViewFooter()
@@ -30,6 +46,15 @@ extension NewSplitViewController {
 
     override func viewDidLoad() {
         itemsTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
+    }
+
+    private func configureForMode() {
+        guard isViewLoaded else {
+            return
+        }
+
+        itemsTableView.reloadData()
+        updateItemsTableViewFooter()
     }
 
     private func updateItemsTableViewFooter() {
@@ -44,6 +69,10 @@ extension NewSplitViewController {
             itemsTableViewFooter.buttonText = "Save Split"
             itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
             itemsTableView.tableFooterView = itemsTableViewFooter
+
+            if case .readOnly = mode {
+                itemsTableViewFooter.removeButton()
+            }
         } else if let itemsTableViewFooter = itemsTableViewFooter {
             itemsTableView.tableFooterView = itemsTableViewFooter
             itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
@@ -52,7 +81,7 @@ extension NewSplitViewController {
 }
 
 // MARK: User Interaction
-private extension NewSplitViewController {
+private extension SplitDetailViewController {
     @IBAction func addItemButtonPressed() {
         let actions: [UIAlertAction] = [
             UIAlertAction(title: "Using Barcode", style: .default, handler: addItemUsingBarcode),
@@ -101,9 +130,14 @@ private extension NewSplitViewController {
 }
 
 // MARK: UITableViewDataSource and UITableViewDelegate
-extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
+extension SplitDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        switch mode {
+        case .edit:
+            return true
+        case .readOnly:
+            return false
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,10 +154,6 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
-        guard let list = list else {
-            return
-        }
-
         list.itemsArray.remove(at: indexPath.row)
         itemsTableView.deleteRows(at: [indexPath], with: .automatic)
         updateItemsTableViewFooter()
@@ -134,7 +164,13 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
         let item = list.itemsArray[indexPath.row]
         let destination = instantiate(ItemDetailViewController.self)!
         destination.delegate = self
-        destination.mode = .editItem(item)
+
+        if case .readOnly = mode {
+            destination.mode = .readOnly(item)
+        } else {
+            destination.mode = .editItem(item)
+        }
+
         navigationController?.pushViewController(destination, animated: true)
     }
 
@@ -144,10 +180,10 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: ItemDetailViewControllerDelegate
-extension NewSplitViewController: ItemDetailViewControllerDelegate {
+extension SplitDetailViewController: ItemDetailViewControllerDelegate {
     func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, added item: Item) {
         itemDetailViewController.navigationController?.popToViewController(self, animated: true)
-        list?.itemsArray.append(item)
+        list.itemsArray.append(item)
         itemsTableView.reloadData()
         updateItemsTableViewFooter()
     }
@@ -161,5 +197,12 @@ extension NewSplitViewController: ItemDetailViewControllerDelegate {
         list.itemsArray[index] = item
         itemsTableView.reloadData()
         updateItemsTableViewFooter()
+    }
+}
+
+extension SplitDetailViewController {
+    enum Mode {
+        case edit(List!)
+        case readOnly(List!)
     }
 }
