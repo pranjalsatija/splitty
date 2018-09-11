@@ -4,7 +4,7 @@ An app I'm making to help people (mainly college students) split bills easily in
 ## Remaining Features
 - [X] **Total calculation.** The working list should have a footer view that shows the current subtotal of the list, along with a button to save it.
 - [X] **Saveable lists.** Users should be able to save the list they're working on when they're done with it. When they save it, they should be able to give it a name, and the list, along with its name, should show up in the "Past Splits" tab.
-- [ ] **Editable items.** Users should be able to click on an item in the current list to view its details and edit it.
+- [X] **Editable items.** Users should be able to click on an item in the current list to view its details and edit it.
 - [ ] **Details for past splits.** When users are looking at their past splits, they should be able to click on one to see the items in it.
 - [ ] **Barcode scanning.** Currently, users have to enter all product info manually. I want to implement barcode scanning using AVFoundation so they can scan the UPC of a product and have its information auto-populate. The app should also track any changes they make to this information and persist them for future use.
 - [ ] **Empty states.** Table views should show some kind of message (and in some cases, a button) when they have no content to display. This should also apply to the list of people that's shown in `AddItemManuallyViewController`.
