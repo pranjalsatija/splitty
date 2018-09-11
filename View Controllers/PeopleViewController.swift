@@ -51,6 +51,7 @@ extension PeopleViewController {
         let alert = UIAlertController(title: "Add Person", message: "Enter the name of the person you want to add.",
                                       preferredStyle: .alert)
         alert.addTextField {(textField) in
+            textField.autocapitalizationType = .words
             textField.placeholder = "Name"
         }
 

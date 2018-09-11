@@ -14,7 +14,7 @@
 		F918D7142131FF0900064730 /* People.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F918D7132131FF0900064730 /* People.storyboard */; };
 		F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7152132064400064730 /* UIViewController+Utilities.swift */; };
 		F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7172132143A00064730 /* StoryboardInstantiatable.swift */; };
-		F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7192132181300064730 /* AddItemManuallyViewController.swift */; };
+		F918D71A2132181300064730 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D7192132181300064730 /* ItemDetailViewController.swift */; };
 		F918D71D213228E600064730 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D71C213228E600064730 /* Item.swift */; };
 		F918D72221322D7500064730 /* IBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918D72121322D7500064730 /* IBDesignableView.swift */; };
 		F924C62F2133020C00939D02 /* IBDesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F924C62E2133020C00939D02 /* IBDesignableTextField.swift */; };
@@ -48,7 +48,7 @@
 		F918D7132131FF0900064730 /* People.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = People.storyboard; sourceTree = "<group>"; };
 		F918D7152132064400064730 /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		F918D7172132143A00064730 /* StoryboardInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiatable.swift; sourceTree = "<group>"; };
-		F918D7192132181300064730 /* AddItemManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemManuallyViewController.swift; sourceTree = "<group>"; };
+		F918D7192132181300064730 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		F918D71C213228E600064730 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F918D72121322D7500064730 /* IBDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableView.swift; sourceTree = "<group>"; };
 		F924C62E2133020C00939D02 /* IBDesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignableTextField.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		F9C19B392131E4F2001666BD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F918D7192132181300064730 /* AddItemManuallyViewController.swift */,
+				F918D7192132181300064730 /* ItemDetailViewController.swift */,
 				F9C19B262131E4CB001666BD /* NewSplitViewController.swift */,
 				F95AE17E2142E330008B0BB7 /* PastSplitsViewController.swift */,
 				F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */,
@@ -302,7 +302,7 @@
 				F977CCB6213C547E002FAA67 /* splitty.xcdatamodeld in Sources */,
 				F97CB973213B12650061D16A /* TextTableViewCell.swift in Sources */,
 				F9EC8D7B213C770A006820C0 /* PeopleViewController.swift in Sources */,
-				F918D71A2132181300064730 /* AddItemManuallyViewController.swift in Sources */,
+				F918D71A2132181300064730 /* ItemDetailViewController.swift in Sources */,
 				F99556662140A6FF008C92C4 /* Spacer.swift in Sources */,
 				F918D7162132064400064730 /* UIViewController+Utilities.swift in Sources */,
 				F97CB97A213C2E1E0061D16A /* List.swift in Sources */,

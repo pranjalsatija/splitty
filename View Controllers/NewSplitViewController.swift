@@ -64,8 +64,9 @@ private extension NewSplitViewController {
     }
 
     func addItemManually(_ action: UIAlertAction) {
-        let destination = instantiate(AddItemManuallyViewController.self)!
+        let destination = instantiate(ItemDetailViewController.self)!
         destination.delegate = self
+        destination.mode = .newItem
         navigationController?.pushViewController(destination, animated: true)
     }
 
@@ -128,17 +129,36 @@ extension NewSplitViewController: UITableViewDataSource, UITableViewDelegate {
         updateItemsTableViewFooter()
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = list.itemsArray[indexPath.row]
+        let destination = instantiate(ItemDetailViewController.self)!
+        destination.delegate = self
+        destination.mode = .editItem(item)
+        navigationController?.pushViewController(destination, animated: true)
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list?.itemsArray.count ?? 0
     }
 }
 
-// MARK: AddItemManuallyViewControllerDelegate
-extension NewSplitViewController: AddItemManuallyViewControllerDelegate {
-    func addItemManuallyViewController(_ addItemManuallyViewController: AddItemManuallyViewController,
-                                       added item: Item) {
-        addItemManuallyViewController.navigationController?.popToViewController(self, animated: true)
+// MARK: ItemDetailViewControllerDelegate
+extension NewSplitViewController: ItemDetailViewControllerDelegate {
+    func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, added item: Item) {
+        itemDetailViewController.navigationController?.popToViewController(self, animated: true)
         list?.itemsArray.append(item)
+        itemsTableView.reloadData()
+        updateItemsTableViewFooter()
+    }
+
+    func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, didEdit item: Item) {
+        guard let index = list.itemsArray.index(of: item) else {
+            return
+        }
+
+        itemDetailViewController.navigationController?.popToViewController(self, animated: true)
+        list.itemsArray[index] = item
         itemsTableView.reloadData()
         updateItemsTableViewFooter()
     }

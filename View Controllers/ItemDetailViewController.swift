@@ -1,5 +1,5 @@
 //
-//  AddItemManuallyViewController.swift
+//  ItemDetailViewController.swift
 //  splitty
 //
 //  Created by Pranjal Satija on 8/25/18.
@@ -8,13 +8,18 @@
 
 import UIKit
 
-protocol AddItemManuallyViewControllerDelegate: class {
-    func addItemManuallyViewController(_ addItemManuallyViewController: AddItemManuallyViewController, added item: Item)
+protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, added item: Item)
+    func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, didEdit item: Item)
 }
 
 // MARK: Base Class
-class AddItemManuallyViewController: UIViewController, NotificationObserver, StoryboardInstantiatable {
-    weak var delegate: AddItemManuallyViewControllerDelegate?
+class ItemDetailViewController: UIViewController, NotificationObserver, StoryboardInstantiatable {
+    weak var delegate: ItemDetailViewControllerDelegate?
+    var mode: Mode? {
+        didSet { configureForMode() }
+    }
+
     var notificationObservers = [Any]()
 
     private var isFormValid = false {
@@ -34,11 +39,47 @@ class AddItemManuallyViewController: UIViewController, NotificationObserver, Sto
 }
 
 // MARK: Setup
-extension AddItemManuallyViewController {
+extension ItemDetailViewController {
     override func viewDidLoad() {
         isFormValid = false
         configureKeyboardHandlers()
         configurePeopleStackView()
+        configureForMode()
+    }
+
+    func configureForMode() {
+        guard let mode = mode, isViewLoaded else {
+            return
+        }
+
+        func configure(with item: Item) {
+            itemNameTextField.text = item.name
+            priceTextField.text = CurrencyFormatter.string(from: NSNumber(value: item.price))
+            peopleToggleLabels.forEach {(toggleLabel) in
+                guard let person = person(for: toggleLabel) else {
+                    return
+                }
+
+                toggleLabel.isOn = item.people.contains(person)
+            }
+        }
+
+        func setUserInteractionEnabled(_ isEnabled: Bool) {
+            [itemNameTextField, priceTextField].forEach { $0?.isUserInteractionEnabled = isEnabled }
+            peopleToggleLabels.forEach { $0.isUserInteractionEnabled = isEnabled }
+            navigationItem.setRightBarButtonItems(isEnabled ? [doneButton] : nil, animated: true)
+        }
+
+        switch mode {
+        case .editItem(let item):
+            setUserInteractionEnabled(true)
+            configure(with: item)
+        case .newItem:
+            setUserInteractionEnabled(true)
+        case .readOnly(let item):
+            setUserInteractionEnabled(false)
+            configure(with: item)
+        }
     }
 
     private func set(_ person: Person, for toggleLabel: ToggleLabel) {
@@ -95,7 +136,7 @@ extension AddItemManuallyViewController {
 }
 
 // MARK: User Interaction
-private extension AddItemManuallyViewController {
+private extension ItemDetailViewController {
     @IBAction func doneButtonPressed() {
         guard let itemName = itemNameTextField.text, let priceString = priceTextField.text,
               let price = CurrencyFormatter.number(from: priceString) else {
@@ -103,8 +144,16 @@ private extension AddItemManuallyViewController {
         }
 
         let people = peopleToggleLabels.filter { $0.isOn }.compactMap(person)
-        let item = Item(name: itemName, people: Set(people), price: price.doubleValue)
-        delegate?.addItemManuallyViewController(self, added: item)
+
+        if let mode = mode, case .newItem = mode {
+            let item = Item(name: itemName, people: Set(people), price: price.doubleValue)
+            delegate?.itemDetailViewController(self, added: item)
+        } else if let mode = mode, case let .editItem(item) = mode {
+            item.name = itemName
+            item.peopleArray = people
+            item.price = price.doubleValue
+            delegate?.itemDetailViewController(self, didEdit: item)
+        }
     }
 
     @IBAction func formDidUpdate() {
@@ -145,5 +194,14 @@ private extension AddItemManuallyViewController {
         priceTextField.text = CurrencyFormatter.reformat(text)
         priceTextField.resignFirstResponder()
         priceTextField.layoutIfNeeded()
+    }
+}
+
+// Mode
+extension ItemDetailViewController {
+    enum Mode {
+        case editItem(Item)
+        case newItem
+        case readOnly(Item)
     }
 }
