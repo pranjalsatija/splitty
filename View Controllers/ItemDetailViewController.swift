@@ -16,7 +16,7 @@ protocol ItemDetailViewControllerDelegate: class {
 // MARK: Base Class
 class ItemDetailViewController: UIViewController, NotificationObserver, StoryboardInstantiatable {
     weak var delegate: ItemDetailViewControllerDelegate?
-    var mode: Mode? {
+    var mode: Mode = .newItem {
         didSet { configureForMode() }
     }
 
@@ -48,7 +48,7 @@ extension ItemDetailViewController {
     }
 
     func configureForMode() {
-        guard let mode = mode, isViewLoaded else {
+        guard isViewLoaded else {
             return
         }
 
@@ -145,10 +145,10 @@ private extension ItemDetailViewController {
 
         let people = peopleToggleLabels.filter { $0.isOn }.compactMap(person)
 
-        if let mode = mode, case .newItem = mode {
+        if case .newItem = mode {
             let item = Item(name: itemName, people: Set(people), price: price.doubleValue)
             delegate?.itemDetailViewController(self, added: item)
-        } else if let mode = mode, case let .editItem(item) = mode {
+        } else if case let .editItem(item) = mode {
             item.name = itemName
             item.peopleArray = people
             item.price = price.doubleValue
