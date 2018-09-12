@@ -1,6 +1,12 @@
 # splitty
 An app I'm making to help people (mainly college students) split bills easily in groups.
 
+## Technical Features
+- [X] **A beautiful and fast UI.** It bothers me that it's 2018 and even with the ridiculous amounts of RAM and CPU power we have, users have to wait for software to catch up to them, when it should be the other way around. See [this article](https://brandur.org/interfaces) for more. Anyhow, Splitty doesn't face this issue. It's a simple app, but I made sure it was blazing fast and very simple to use.
+- [X] **Core Data for local object graph persistence.** Splitty uses Core Data + a custom lightweight abstraction I wrote (see [Database.swift](Models/Database.swift)) for all its local database work.
+- [X] **Super nice custom UIControls and UIViews.** Splitty required a few UI components that don't exist by default in UIKit, so I made them using UIControl. To see the controls, check out [ToggleControl.swift](Views/ToggleControl.swift) and [ToggleLabel.swift](Views/ToggleLabel.swift). Both of these controls were developed to look and feel like they're part of iOS. They respond to touches and highlights the same way the rest of the UIKit controls do, and they provide a high degree of customization, so they're reusable across other apps. Along with those, there are a few UIView subclasses in the Views directory. I broke all non-IB views out of view controllers and into custom UIView subclasses to keep my view controllers clean.
+- [X] **Good software design and clean code.** This should be a given, but it's worth mentioning anyway. I used SwiftLint throughout the lifetime of the project to make sure I was following all the right Swift conventions. On top of that, I made my code as Swifty as possible, and I took full advantage of the language's many features like protocols, error handling, higher order functions, etc. On top of that, I made sure to follow general software design principles like [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and [KISS](https://en.wikipedia.org/wiki/KISS_principle) to keep the code as clean as possible.
+
 ## Remaining Features
 - [X] **Total calculation.** The working list should have a footer view that shows the current subtotal of the list, along with a button to save it.
 - [X] **Saveable lists.** Users should be able to save the list they're working on when they're done with it. When they save it, they should be able to give it a name, and the list, along with its name, should show up in the "Past Splits" tab.
