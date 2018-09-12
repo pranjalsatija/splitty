@@ -66,7 +66,6 @@
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitDetailViewController.swift; sourceTree = "<group>"; };
 		F9C19B292131E4CB001666BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F9C19B2C2131E4CB001666BD /* splitty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = splitty.xcdatamodel; sourceTree = "<group>"; };
 		F9C19B2E2131E4CC001666BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9C19B312131E4CC001666BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9C19B332131E4CC001666BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 				F9C19B2E2131E4CC001666BD /* Assets.xcassets */,
 				F9C19B302131E4CC001666BD /* LaunchScreen.storyboard */,
 				F9C19B332131E4CC001666BD /* Info.plist */,
-				F9C19B2B2131E4CB001666BD /* splitty.xcdatamodeld */,
 			);
 			path = splitty;
 			sourceTree = "<group>";
@@ -531,16 +529,6 @@
 				F977CCB5213C547E002FAA67 /* splitty.xcdatamodel */,
 			);
 			currentVersion = F977CCB5213C547E002FAA67 /* splitty.xcdatamodel */;
-			path = splitty.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		F9C19B2B2131E4CB001666BD /* splitty.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F9C19B2C2131E4CB001666BD /* splitty.xcdatamodel */,
-			);
-			currentVersion = F9C19B2C2131E4CB001666BD /* splitty.xcdatamodel */;
 			path = splitty.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

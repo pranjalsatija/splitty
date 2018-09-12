@@ -14,8 +14,9 @@ struct Database {
         return container?.viewContext ?? NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     }
 
+    static private(set) var isInitialized = false
+
     static private var container: NSPersistentContainer?
-    static private var isInitialized = false
 }
 
 // MARK: Setup and Teardown

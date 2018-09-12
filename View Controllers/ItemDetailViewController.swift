@@ -17,7 +17,7 @@ protocol ItemDetailViewControllerDelegate: class {
 class ItemDetailViewController: UIViewController, NotificationObserver, StoryboardInstantiatable {
     weak var delegate: ItemDetailViewControllerDelegate?
     var mode: Mode = .newItem {
-        didSet { configureForMode() }
+        didSet { updateMode() }
     }
 
     var notificationObservers = [Any]()
@@ -44,10 +44,10 @@ extension ItemDetailViewController {
         isFormValid = false
         configureKeyboardHandlers()
         configurePeopleStackView()
-        configureForMode()
+        updateMode()
     }
 
-    private func configureForMode() {
+    private func updateMode() {
         guard isViewLoaded else {
             return
         }
@@ -72,11 +72,14 @@ extension ItemDetailViewController {
 
         switch mode {
         case .editItem(let item):
+            navigationItem.title = "Edit Item"
             setUserInteractionEnabled(true)
             configure(with: item)
         case .newItem:
+            navigationItem.title = "Add Item"
             setUserInteractionEnabled(true)
         case .readOnly(let item):
+            navigationItem.title = "View Item"
             setUserInteractionEnabled(false)
             configure(with: item)
         }
@@ -156,7 +159,11 @@ private extension ItemDetailViewController {
         }
     }
 
-    @objc func formDidUpdate() {
+    @objc func formDidUpdate(sender: UIView) {
+        if sender is ToggleLabel {
+            view.endEditing(true)
+        }
+
         guard let itemName = itemNameTextField.text, let price = priceTextField.text else {
             isFormValid = false
             return
@@ -166,7 +173,7 @@ private extension ItemDetailViewController {
     }
 
     @IBAction func itemNameTextFieldChanged() {
-        formDidUpdate()
+        formDidUpdate(sender: itemNameTextField)
     }
 
     @IBAction func itemNameTextFieldDidReturn() {
@@ -189,7 +196,7 @@ private extension ItemDetailViewController {
             priceTextField.text = CurrencyFormatter.currencySymbol + text
         }
 
-        formDidUpdate()
+        formDidUpdate(sender: priceTextField)
     }
 
     @IBAction func priceTextFieldEndedEditing() {

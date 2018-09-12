@@ -23,13 +23,15 @@ class SplitDetailViewController: UIViewController, StoryboardInstantiatable {
         } set {
             if case .edit = mode {
                 mode = .edit(newValue)
+            } else {
+                update()
             }
         }
     }
 
     var mode: Mode = .edit(nil) {
         didSet {
-            configureForMode()
+            update()
         }
     }
 
@@ -40,43 +42,48 @@ class SplitDetailViewController: UIViewController, StoryboardInstantiatable {
 // MARK: Setup
 extension SplitDetailViewController {
     override func viewDidAppear(_ animated: Bool) {
-        list = .current ?? .empty
-        updateItemsTableViewFooter()
+        if list == nil {
+            list = .current ?? .empty
+        }
     }
 
     override func viewDidLoad() {
         itemsTableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseIdentifier)
+
+        if Database.isInitialized {
+            list = .current ?? .empty
+        }
     }
 
-    private func configureForMode() {
+    private func update() {
         guard isViewLoaded else {
             return
         }
 
-        itemsTableView.reloadData()
-        updateItemsTableViewFooter()
-    }
+        func updateItemsTableViewFooter() {
+            let subtotal = list.itemsArray.reduce(0) { $0 + $1.price }
+            let formattedSubtotal = CurrencyFormatter.string(from: NSNumber(value: subtotal))
 
-    private func updateItemsTableViewFooter() {
-        let subtotal = list.itemsArray.reduce(0) { $0 + $1.price }
-        let formattedSubtotal = CurrencyFormatter.string(from: NSNumber(value: subtotal))
-
-        if list == nil || list.itemsArray.isEmpty {
-            itemsTableView.tableFooterView = UIView()
-        } else if itemsTableViewFooter == nil {
-            itemsTableViewFooter = TableViewFooterView()
-            itemsTableViewFooter.button.addTarget(self, action: #selector(saveSplitButtonPressed), for: .touchUpInside)
-            itemsTableViewFooter.buttonText = "Save Split"
-            itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
-            itemsTableView.tableFooterView = itemsTableViewFooter
+            if list == nil || list.itemsArray.isEmpty {
+                itemsTableView.tableFooterView = UIView()
+            } else if itemsTableViewFooter == nil {
+                itemsTableViewFooter = TableViewFooterView()
+                itemsTableViewFooter.button.addTarget(self, action: #selector(saveSplitButtonPressed), for: .touchUpInside)
+                itemsTableViewFooter.buttonText = "Save Split"
+                itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
+                itemsTableView.tableFooterView = itemsTableViewFooter
+            } else if let itemsTableViewFooter = itemsTableViewFooter {
+                itemsTableView.tableFooterView = itemsTableViewFooter
+                itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
+            }
 
             if case .readOnly = mode {
                 itemsTableViewFooter.removeButton()
             }
-        } else if let itemsTableViewFooter = itemsTableViewFooter {
-            itemsTableView.tableFooterView = itemsTableViewFooter
-            itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
         }
+
+        itemsTableView.reloadData()
+        updateItemsTableViewFooter()
     }
 }
 
@@ -156,7 +163,7 @@ extension SplitDetailViewController: UITableViewDataSource, UITableViewDelegate 
                    forRowAt indexPath: IndexPath) {
         list.itemsArray.remove(at: indexPath.row)
         itemsTableView.deleteRows(at: [indexPath], with: .automatic)
-        updateItemsTableViewFooter()
+        update()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -184,8 +191,7 @@ extension SplitDetailViewController: ItemDetailViewControllerDelegate {
     func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, added item: Item) {
         itemDetailViewController.navigationController?.popToViewController(self, animated: true)
         list.itemsArray.append(item)
-        itemsTableView.reloadData()
-        updateItemsTableViewFooter()
+        update()
     }
 
     func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, didEdit item: Item) {
@@ -195,8 +201,7 @@ extension SplitDetailViewController: ItemDetailViewControllerDelegate {
 
         itemDetailViewController.navigationController?.popToViewController(self, animated: true)
         list.itemsArray[index] = item
-        itemsTableView.reloadData()
-        updateItemsTableViewFooter()
+        update()
     }
 }
 
