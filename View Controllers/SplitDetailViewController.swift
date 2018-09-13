@@ -35,6 +35,7 @@ class SplitDetailViewController: UIViewController, StoryboardInstantiatable {
         }
     }
 
+    @IBOutlet weak private var addButton: UIBarButtonItem!
     @IBOutlet weak private var itemsTableView: UITableView!
     private var itemsTableViewFooter: TableViewFooterView!
 }
@@ -80,8 +81,19 @@ extension SplitDetailViewController {
             }
         }
 
+        func updateMode() {
+            if case .readOnly = mode {
+                navigationItem.setRightBarButtonItems(nil, animated: true)
+                navigationItem.title = "View Split"
+            } else if let addButton = addButton {
+                navigationItem.setRightBarButtonItems([addButton], animated: true)
+                navigationItem.title = "New Split"
+            }
+        }
+
         itemsTableView.reloadData()
         updateItemsTableViewFooter()
+        updateMode()
     }
 }
 
