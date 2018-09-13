@@ -23,25 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController?.showAlert(title: "Error", message: "We were unable to launch Splitty.",
                                                            actions: [exitAction])
             }
-
-            self.computeTotals()
-        }
-    }
-
-    func computeTotals() {
-        let predicate = NSPredicate(format: "date != nil")
-        guard let lists = try? Database.retrieve(List.self, predicate: predicate) else { return }
-
-        for list in lists {
-            var results = [Person: Double]()
-
-            for item in list.itemsArray {
-                for person in item.peopleArray {
-                    results[person] = results[person, default: 0] + (item.price / Double(item.peopleArray.count))
-                }
-            }
-
-            print("Totals for \(list.name ?? "Unnamed List"):\n\(results.map { ($0.key.name, CurrencyFormatter.string(from: NSNumber(value: $0.value))) }))")
         }
     }
 

@@ -28,17 +28,8 @@ import CoreData
     }()
 
     @NSManaged var date: Date?
-
-    override var description: String {
-        let totalPrice = itemsArray.reduce(0) { $0 + $1.price }
-        let formattedPrice = CurrencyFormatter.string(from: NSNumber(value: totalPrice))
-
-        let date = self.date ?? Date()
-        let formattedDate = List.dateFormatter.string(from: date)
-        return "\(formattedDate) · \(formattedPrice)"
-    }
-
     @NSManaged var name: String?
+
     @NSManaged private var items: NSMutableOrderedSet
 
     private var _itemsArray: [Item]!
@@ -61,5 +52,37 @@ import CoreData
         self.date = date
         self.name = name
         self.items = items
+    }
+}
+
+extension List {
+    func description() -> String {
+        let date = self.date ?? Date()
+        let formattedDate = List.dateFormatter.string(from: date)
+        return "\(formattedDate) · \(formattedSubtotal())"
+    }
+
+    func formattedSubtotal() -> String {
+        return "Subtotal: \(CurrencyFormatter.string(from: NSNumber(value: subtotal())))"
+    }
+
+    func formattedTotals() -> String {
+        var results = [Person: Double]()
+
+        for item in itemsArray {
+            for person in item.peopleArray {
+                results[person] = results[person, default: 0] + (item.price / Double(item.peopleArray.count))
+            }
+        }
+
+        let formattedTotalsByPerson = results.sorted { $0.value > $1.value }.map {(person, total) in
+            return "\(person.name): \(CurrencyFormatter.string(from: NSNumber(value: total)))"
+        }
+
+        return ([formattedSubtotal()] + formattedTotalsByPerson).joined(separator: "\n")
+    }
+
+    func subtotal() -> Double {
+        return itemsArray.reduce(0) { $0 + $1.price }
     }
 }

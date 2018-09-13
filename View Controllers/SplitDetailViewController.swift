@@ -61,20 +61,18 @@ extension SplitDetailViewController {
         }
 
         func updateItemsTableViewFooter() {
-            let subtotal = list.itemsArray.reduce(0) { $0 + $1.price }
-            let formattedSubtotal = CurrencyFormatter.string(from: NSNumber(value: subtotal))
-
             if list == nil || list.itemsArray.isEmpty {
                 itemsTableView.tableFooterView = UIView()
             } else if itemsTableViewFooter == nil {
                 itemsTableViewFooter = TableViewFooterView()
-                itemsTableViewFooter.button.addTarget(self, action: #selector(saveSplitButtonPressed), for: .touchUpInside)
+                itemsTableViewFooter.button.addTarget(self, action: #selector(saveSplitButtonPressed),
+                                                      for: .touchUpInside)
                 itemsTableViewFooter.buttonText = "Save Split"
-                itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
+                itemsTableViewFooter.labelText = list.formattedTotals()
                 itemsTableView.tableFooterView = itemsTableViewFooter
             } else if let itemsTableViewFooter = itemsTableViewFooter {
                 itemsTableView.tableFooterView = itemsTableViewFooter
-                itemsTableViewFooter.labelText = "Subtotal: \(formattedSubtotal)"
+                itemsTableViewFooter.labelText = list.formattedTotals()
             }
 
             if case .readOnly = mode {

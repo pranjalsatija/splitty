@@ -40,7 +40,7 @@ extension PastSplitsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.reuseIdentifier, for: indexPath)
         cell.textLabel?.text = lists[indexPath.row].name ?? "A List"
-        cell.detailTextLabel?.text = lists[indexPath.row].description
+        cell.detailTextLabel?.text = lists[indexPath.row].description()
         return cell
     }
 

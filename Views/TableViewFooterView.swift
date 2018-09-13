@@ -58,6 +58,7 @@ extension TableViewFooterView {
         func configureLabel() {
             label = UILabel()
             label.font = .preferredFont(forTextStyle: .headline)
+            label.numberOfLines = 0
             label.textAlignment = .center
             stackView.addArrangedSubview(label)
         }
