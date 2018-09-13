@@ -159,11 +159,7 @@ private extension ItemDetailViewController {
         }
     }
 
-    @objc func formDidUpdate(sender: UIView) {
-        if sender is ToggleLabel {
-            view.endEditing(true)
-        }
-
+    @objc func formDidUpdate() {
         guard let itemName = itemNameTextField.text, let price = priceTextField.text else {
             isFormValid = false
             return
@@ -173,7 +169,7 @@ private extension ItemDetailViewController {
     }
 
     @IBAction func itemNameTextFieldChanged() {
-        formDidUpdate(sender: itemNameTextField)
+        formDidUpdate()
     }
 
     @IBAction func itemNameTextFieldDidReturn() {
@@ -196,7 +192,7 @@ private extension ItemDetailViewController {
             priceTextField.text = CurrencyFormatter.currencySymbol + text
         }
 
-        formDidUpdate(sender: priceTextField)
+        formDidUpdate()
     }
 
     @IBAction func priceTextFieldEndedEditing() {
