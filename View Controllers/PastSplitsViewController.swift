@@ -8,12 +8,14 @@
 
 import UIKit
 
+// MARK: Base Class
 class PastSplitsViewController: UIViewController {
     var lists = [List]()
 
     @IBOutlet weak private var splitsTableView: UITableView!
 }
 
+// MARK: Setup
 extension PastSplitsViewController {
     override func viewDidAppear(_ animated: Bool) {
         do {
@@ -36,6 +38,7 @@ extension PastSplitsViewController {
     }
 }
 
+// MARK: UITableViewDataSource & UITableViewDelegate
 extension PastSplitsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.reuseIdentifier, for: indexPath)

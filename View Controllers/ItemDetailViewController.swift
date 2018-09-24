@@ -206,7 +206,7 @@ private extension ItemDetailViewController {
     }
 }
 
-// Mode
+// MARK: Mode
 extension ItemDetailViewController {
     enum Mode {
         case editItem(Item)

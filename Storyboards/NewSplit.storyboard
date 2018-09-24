@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U5t-Am-uBf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U5t-Am-uBf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="-170" y="27"/>
         </scene>
-        <!--Add Item-->
+        <!--Item Detail-->
         <scene sceneID="WyC-vn-M86">
             <objects>
-                <viewController storyboardIdentifier="ItemDetailViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nEz-8v-smD" customClass="ItemDetailViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ItemDetailViewController" title="Item Detail" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nEz-8v-smD" customClass="ItemDetailViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bkP-d5-fD2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,13 +92,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fik-1Z-OsA" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="51.5" width="343" height="43"/>
+                                        <rect key="frame" x="16" y="51.5" width="343" height="107"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="yX4-Tj-TIu">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="107"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-3b-4Pt" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="53"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
@@ -117,14 +117,14 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiJ-dR-z2c">
-                                                        <rect key="frame" x="0.0" y="21" width="343" height="1"/>
+                                                        <rect key="frame" x="0.0" y="53" width="343" height="1"/>
                                                         <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="0.25" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="fcU-5z-r5u"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$Price" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPR-4R-Rlf" customClass="IBDesignableTextField" customModule="splitty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="22" width="343" height="21"/>
+                                                        <rect key="frame" x="0.0" y="54" width="343" height="53"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="done"/>
@@ -164,13 +164,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THc-8P-9Bh">
-                                        <rect key="frame" x="16" y="110.5" width="343" height="31.5"/>
+                                        <rect key="frame" x="16" y="174.5" width="343" height="31.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-rV-DaD" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="146" width="343" height="54"/>
+                                        <rect key="frame" x="16" y="210" width="343" height="54"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UEP-XB-ehJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
@@ -224,7 +224,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uwi-QR-Tv4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Item" id="KzG-Oc-z33">
+                    <navigationItem key="navigationItem" title="Item Detail" id="KzG-Oc-z33">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="2BP-PR-nsJ">
                             <connections>
                                 <action selector="doneButtonPressed" destination="nEz-8v-smD" id="wy7-cd-BVG"/>
@@ -245,5 +245,153 @@
             </objects>
             <point key="canvasLocation" x="1536.8" y="26.53673163418291"/>
         </scene>
+        <!--Scan Barcode View Controller-->
+        <scene sceneID="dwX-Ow-ZE0">
+            <objects>
+                <viewController storyboardIdentifier="ScanBarcodeViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V3y-zB-OZ1" customClass="ScanBarcodeViewController" customModule="splitty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kfH-DH-YLD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAG-RV-Zai">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsK-ei-BbK" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
+                                <rect key="frame" x="16" y="36" width="44" height="44"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-4r-FGr">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="f8P-fL-UFg">
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E54-Sw-LFN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="xmq-d1-Ywn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBg-Ib-7Bu">
+                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                                <state key="normal" title="Button" image="ic_cancel"/>
+                                                                <connections>
+                                                                    <action selector="cancelButtonPressed" destination="V3y-zB-OZ1" eventType="touchUpInside" id="F3y-ZI-Rsi"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="dark"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mS8-4r-FGr" secondAttribute="trailing" id="4rK-ul-rY5"/>
+                                    <constraint firstItem="mS8-4r-FGr" firstAttribute="leading" secondItem="jsK-ei-BbK" secondAttribute="leading" id="5sP-Xn-1Ll"/>
+                                    <constraint firstAttribute="width" constant="44" id="MJd-Q1-0d4"/>
+                                    <constraint firstAttribute="height" constant="44" id="ZgC-TZ-XTQ"/>
+                                    <constraint firstItem="mS8-4r-FGr" firstAttribute="top" secondItem="jsK-ei-BbK" secondAttribute="top" id="kVw-Rv-LSR"/>
+                                    <constraint firstAttribute="bottom" secondItem="mS8-4r-FGr" secondAttribute="bottom" id="ol8-AT-rXY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNG-EQ-di8" customClass="IBDesignableView" customModule="splitty" customModuleProvider="target">
+                                <rect key="frame" x="16" y="604" width="343" height="47"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dP-5r-jEb">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AuX-kD-Es7">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxB-Ky-Awf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yBQ-r1-Nd3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="47"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for barcode..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b7-yd-4B8">
+                                                                <rect key="frame" x="16" y="16" width="311" height="15"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="5b7-yd-4B8" secondAttribute="trailing" constant="16" id="Qc7-dt-YcE"/>
+                                                            <constraint firstItem="5b7-yd-4B8" firstAttribute="top" secondItem="yBQ-r1-Nd3" secondAttribute="top" constant="16" id="Wqw-pK-Nhm"/>
+                                                            <constraint firstItem="5b7-yd-4B8" firstAttribute="leading" secondItem="yBQ-r1-Nd3" secondAttribute="leading" constant="16" id="fH3-su-65Z"/>
+                                                            <constraint firstAttribute="bottom" secondItem="5b7-yd-4B8" secondAttribute="bottom" constant="16" id="udy-fN-EPL"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="dark"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mxB-Ky-Awf" secondAttribute="trailing" id="IYA-gt-vxL"/>
+                                                <constraint firstAttribute="bottom" secondItem="mxB-Ky-Awf" secondAttribute="bottom" id="LKP-k4-JDw"/>
+                                                <constraint firstItem="mxB-Ky-Awf" firstAttribute="leading" secondItem="AuX-kD-Es7" secondAttribute="leading" id="gKo-zy-bOi"/>
+                                                <constraint firstItem="mxB-Ky-Awf" firstAttribute="top" secondItem="AuX-kD-Es7" secondAttribute="top" id="vdS-cO-hTA"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9dP-5r-jEb" secondAttribute="bottom" id="KLL-uX-HNg"/>
+                                    <constraint firstItem="9dP-5r-jEb" firstAttribute="top" secondItem="ZNG-EQ-di8" secondAttribute="top" id="b85-V0-u4R"/>
+                                    <constraint firstAttribute="trailing" secondItem="9dP-5r-jEb" secondAttribute="trailing" id="dfL-zU-pAt"/>
+                                    <constraint firstItem="9dP-5r-jEb" firstAttribute="leading" secondItem="ZNG-EQ-di8" secondAttribute="leading" id="sUa-As-O9j"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jsK-ei-BbK" firstAttribute="leading" secondItem="5zd-hr-SOC" secondAttribute="leading" constant="16" id="5Ul-8r-z9V"/>
+                            <constraint firstItem="jsK-ei-BbK" firstAttribute="top" secondItem="5zd-hr-SOC" secondAttribute="top" constant="16" id="7x2-eV-FiY"/>
+                            <constraint firstItem="ZNG-EQ-di8" firstAttribute="leading" secondItem="5zd-hr-SOC" secondAttribute="leading" constant="16" id="9EC-Uv-Rcg"/>
+                            <constraint firstItem="EAG-RV-Zai" firstAttribute="top" secondItem="kfH-DH-YLD" secondAttribute="top" id="MzS-gy-sv4"/>
+                            <constraint firstItem="EAG-RV-Zai" firstAttribute="leading" secondItem="5zd-hr-SOC" secondAttribute="leading" id="fX2-O2-CwM"/>
+                            <constraint firstItem="EAG-RV-Zai" firstAttribute="trailing" secondItem="5zd-hr-SOC" secondAttribute="trailing" id="kLf-Pm-rY7"/>
+                            <constraint firstItem="5zd-hr-SOC" firstAttribute="trailing" secondItem="ZNG-EQ-di8" secondAttribute="trailing" constant="16" id="rbc-S4-coe"/>
+                            <constraint firstItem="5zd-hr-SOC" firstAttribute="bottom" secondItem="ZNG-EQ-di8" secondAttribute="bottom" constant="16" id="tLY-Ph-Kpm"/>
+                            <constraint firstItem="EAG-RV-Zai" firstAttribute="bottom" secondItem="5zd-hr-SOC" secondAttribute="bottom" id="wKt-90-cOS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5zd-hr-SOC"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="EAG-RV-Zai" id="Ffr-sh-8MY"/>
+                        <outlet property="statusLabel" destination="5b7-yd-4B8" id="vrI-CB-x3C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wkk-2Z-oHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2400.8000000000002" y="26.53673163418291"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="ic_cancel" width="96" height="96"/>
+    </resources>
 </document>

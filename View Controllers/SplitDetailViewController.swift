@@ -84,7 +84,7 @@ extension SplitDetailViewController {
         func updateMode() {
             if case .readOnly = mode {
                 navigationItem.setRightBarButtonItems(nil, animated: true)
-                navigationItem.title = "View Split"
+                navigationItem.title = list.name ?? "View Split"
             } else if let addButton = addButton {
                 navigationItem.setRightBarButtonItems([addButton], animated: true)
                 navigationItem.title = "New Split"
@@ -117,7 +117,9 @@ private extension SplitDetailViewController {
     }
 
     func addItemUsingBarcode(_ action: UIAlertAction) {
-
+        let destination = instantiate(ScanBarcodeViewController.self)!
+        destination.delegate = self
+        navigationController?.pushViewController(destination, animated: true)
     }
 
     @objc func saveSplitButtonPressed() {
@@ -199,7 +201,7 @@ extension SplitDetailViewController: UITableViewDataSource, UITableViewDelegate 
 // MARK: ItemDetailViewControllerDelegate
 extension SplitDetailViewController: ItemDetailViewControllerDelegate {
     func itemDetailViewController(_ itemDetailViewController: ItemDetailViewController, added item: Item) {
-        itemDetailViewController.navigationController?.popToViewController(self, animated: true)
+        navigationController?.popToViewController(self, animated: true)
         list.itemsArray.append(item)
         update()
     }
@@ -209,12 +211,20 @@ extension SplitDetailViewController: ItemDetailViewControllerDelegate {
             return
         }
 
-        itemDetailViewController.navigationController?.popToViewController(self, animated: true)
+        navigationController?.popToViewController(self, animated: true)
         list.itemsArray[index] = item
         update()
     }
 }
 
+// MARK: ScanBarcodeViewControllerDelegate
+extension SplitDetailViewController: ScanBarcodeViewControllerDelegate {
+    func scanBarcodeViewControllerDidCancel(_ scanBarcodeViewController: ScanBarcodeViewController) {
+        navigationController?.popToViewController(self, animated: true)
+    }
+}
+
+// MARK: ScanBarcodeViewControllerDelegate
 extension SplitDetailViewController {
     enum Mode {
         case edit(List!)

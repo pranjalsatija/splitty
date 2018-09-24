@@ -27,6 +27,8 @@
 		F97CB97E213C3D5A0061D16A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB97D213C3D5A0061D16A /* Person.swift */; };
 		F97CB9A1213C46F20061D16A /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97CB9A0213C46F20061D16A /* Database.swift */; };
 		F99556662140A6FF008C92C4 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99556652140A6FF008C92C4 /* Spacer.swift */; };
+		F9ADDF0D215856DF002188C2 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADDF0C215856DF002188C2 /* ScanBarcodeViewController.swift */; };
+		F9ADDF0F215856F2002188C2 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9ADDF0E215856F2002188C2 /* CameraController.swift */; };
 		F9BDA9CF2140CFBC005882AF /* TableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDA9CE2140CFBC005882AF /* TableViewFooterView.swift */; };
 		F9C19B252131E4CB001666BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B242131E4CB001666BD /* AppDelegate.swift */; };
 		F9C19B272131E4CB001666BD /* SplitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */; };
@@ -61,6 +63,8 @@
 		F97CB97D213C3D5A0061D16A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F97CB9A0213C46F20061D16A /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		F99556652140A6FF008C92C4 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		F9ADDF0C215856DF002188C2 /* ScanBarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBarcodeViewController.swift; sourceTree = "<group>"; };
+		F9ADDF0E215856F2002188C2 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		F9BDA9CE2140CFBC005882AF /* TableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFooterView.swift; sourceTree = "<group>"; };
 		F9C19B212131E4CB001666BD /* splitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = splitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C19B242131E4CB001666BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,11 +134,12 @@
 		F972186B2137676300767209 /* Convenience */ = {
 			isa = PBXGroup;
 			children = (
+				F9ADDF0E215856F2002188C2 /* CameraController.swift */,
+				F9EC8D78213C5FAA006820C0 /* Logging.swift */,
 				F97218692137675C00767209 /* NotificationCenter+Utilities.swift */,
 				F9004A5121349695001DD48A /* UIView+Utilities.swift */,
 				F918D7152132064400064730 /* UIViewController+Utilities.swift */,
 				F918D7172132143A00064730 /* StoryboardInstantiatable.swift */,
-				F9EC8D78213C5FAA006820C0 /* Logging.swift */,
 			);
 			path = Convenience;
 			sourceTree = "<group>";
@@ -178,9 +183,10 @@
 			isa = PBXGroup;
 			children = (
 				F918D7192132181300064730 /* ItemDetailViewController.swift */,
-				F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */,
 				F95AE17E2142E330008B0BB7 /* PastSplitsViewController.swift */,
 				F9EC8D7A213C770A006820C0 /* PeopleViewController.swift */,
+				F9ADDF0C215856DF002188C2 /* ScanBarcodeViewController.swift */,
+				F9C19B262131E4CB001666BD /* SplitDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -318,7 +324,9 @@
 				F918D7182132143A00064730 /* StoryboardInstantiatable.swift in Sources */,
 				F93A8AAB213703F60083822A /* HorizontalSeparator.swift in Sources */,
 				F9F75BB3213308F200108D19 /* CurrencyFormatter.swift in Sources */,
+				F9ADDF0D215856DF002188C2 /* ScanBarcodeViewController.swift in Sources */,
 				F97CB9A1213C46F20061D16A /* Database.swift in Sources */,
+				F9ADDF0F215856F2002188C2 /* CameraController.swift in Sources */,
 				F91251652134509A00C43EDA /* ToggleControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
