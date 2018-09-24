@@ -38,7 +38,8 @@ extension ScanBarcodeViewController {
         do {
             try cameraController.configure()
         } catch {
-            print("Error: \(error)")
+            showError(error)
+            Log.error(error)
         }
     }
 

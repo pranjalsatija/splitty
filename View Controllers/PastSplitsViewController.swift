@@ -21,7 +21,8 @@ extension PastSplitsViewController {
         do {
             try loadData()
         } catch {
-            showAlert(title: "Error", message: "We were unable to load your past lists.", actions: [.dismiss])
+            showError(error)
+            Log.error(error)
         }
     }
 

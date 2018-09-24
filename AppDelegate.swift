@@ -15,13 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
         Database.initialize {(error) in
-            if error != nil {
+            if let error = error {
                 let exitAction = UIAlertAction(title: "Exit", style: .default) {(_) in
                     exit(0)
                 }
 
-                self.window?.rootViewController?.showAlert(title: "Error", message: "We were unable to launch Splitty.",
-                                                           actions: [exitAction])
+                self.window?.rootViewController?.showError(error, actions: [exitAction])
             }
         }
     }

@@ -21,7 +21,8 @@ extension PeopleViewController {
         do {
             try loadData()
         } catch {
-            showAlert(title: "Error", message: "We were unable to load the list of people.", actions: [.dismiss])
+            showError(error)
+            Log.error(error)
         }
     }
 
@@ -40,7 +41,8 @@ extension PeopleViewController {
         do {
             try Database.delete(person)
         } catch {
-            showAlert(title: "Error", message: "We were unable to delete that person.", actions: [.dismiss])
+            showError(error)
+            Log.error(error)
         }
     }
 }
@@ -78,7 +80,7 @@ extension PeopleViewController {
                 try loadData()
             }
         } catch {
-            showAlert(title: "Error", message: "We were unable to add that person.", actions: [.dismiss])
+            showError(error)
             Log.error(error)
         }
     }

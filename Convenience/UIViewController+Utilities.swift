@@ -30,4 +30,10 @@ extension UIViewController {
         actions.forEach(alert.addAction)
         present(alert, animated: true)
     }
+
+    func showError(_ error: Error, actions: [UIAlertAction] = [.dismiss]) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        actions.forEach(alert.addAction)
+        present(alert, animated: true)
+    }
 }
