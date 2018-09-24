@@ -14,9 +14,6 @@ An app I'm making to help people (mainly college students) split bills easily in
 - [X] **Details for past splits.** When users are looking at their past splits, they should be able to click on one to see the items in it.
 - [ ] **Barcode scanning.** Currently, users have to enter all product info manually. I want to implement barcode scanning using AVFoundation so they can scan the UPC of a product and have its information auto-populate. The app should also track any changes they make to this information and persist them for future use.
 - [ ] **Empty states.** Table views should show some kind of message (and in some cases, a button) when they have no content to display. This should also apply to the list of people that's shown in `AddItemManuallyViewController`.
-
-## Future Features
-- [ ] **Smart barcode scanning.** If a user scans a barcode for an item and then changes any of its information, those updates should be saved so the next time the user scans that item, they're automatically applied.
 - [ ] **Group lists.** Users should be able to connect their phones together using Multipeer Connectivity so they can all work on the same list together.
 
 ## Things to Clean Up
