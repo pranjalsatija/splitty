@@ -28,6 +28,10 @@ class CameraController: NSObject {
             throw Error.noCamerasAvailable
         }
 
+        guard AVCaptureDevice.authorizationStatus(for: .video) != .denied else {
+            throw Error.cameraAccessDenied
+        }
+
         session.sessionPreset = .high
 
         cameraInput = try AVCaptureDeviceInput(device: camera)
@@ -72,8 +76,20 @@ extension CameraController: AVCaptureMetadataOutputObjectsDelegate {
 }
 
 extension CameraController {
-    enum Error: Swift.Error {
+    enum Error: LocalizedError {
+        case cameraAccessDenied
         case noCamerasAvailable
         case unableToConfigureCaptureSession
+
+        var errorDescription: String? {
+            switch self {
+            case .cameraAccessDenied:
+                return "Please go to Settings and enable camera access for Splitty to use this feature."
+            case .noCamerasAvailable:
+                return "It seems like your device doesn't have any cameras."
+            case .unableToConfigureCaptureSession:
+                return "We were unable to start the camera."
+            }
+        }
     }
 }

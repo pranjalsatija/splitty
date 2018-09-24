@@ -38,7 +38,11 @@ extension ScanBarcodeViewController {
         do {
             try cameraController.configure()
         } catch {
-            showError(error)
+            let dismissAction = UIAlertAction(title: UIAlertAction.dismiss.title, style: .default) {(_) in
+                self.delegate?.scanBarcodeViewControllerDidCancel(self)
+            }
+
+            showError(error, actions: [dismissAction])
             Log.error(error)
         }
     }
