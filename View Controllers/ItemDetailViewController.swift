@@ -36,6 +36,10 @@ class ItemDetailViewController: UIViewController, NotificationObserver, Storyboa
     @IBOutlet weak private var priceTextField: UITextField!
     @IBOutlet weak private var scrollViewBottomConstraint: NSLayoutConstraint!
     private var peopleToggleLabels: [ToggleLabel]!
+
+    deinit {
+        stopObserving()
+    }
 }
 
 // MARK: Setup
@@ -98,15 +102,15 @@ extension ItemDetailViewController {
         let animationDurationKey = UIResponder.keyboardAnimationDurationUserInfoKey
 
         func keyboardChanged(_ notification: Notification) {
-            guard let info = notification.userInfo, let keyboardFrameValue = info[frameKey] as? NSValue,
-                  let animationDuration = info[animationDurationKey] as? NSNumber else {
+            guard let info = notification.userInfo, let keyboardFrameValue = info[frameKey] as? NSValue else {
                 return
             }
 
+            let animationDuration = (info[animationDurationKey] as? NSNumber)?.doubleValue ?? 0
             let keyboardHeight = keyboardFrameValue.cgRectValue.height
             let bottomSafeAreaInset = view.safeAreaInsets.bottom
 
-            UIView.animate(withDuration: animationDuration.doubleValue) {
+            UIView.animate(withDuration: animationDuration) {
                 self.scrollViewBottomConstraint.constant = keyboardHeight - bottomSafeAreaInset
                 self.view.layoutIfNeeded()
             }

@@ -39,6 +39,11 @@ class TableViewFooterView: UIView {
         super.init(frame: frame)
         configureSubviews()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        frame.size.height = stackView.arrangedSubviews.reduce(0) { $0 + $1.frame.height }
+    }
 }
 
 // MARK: Setup
@@ -84,7 +89,7 @@ extension TableViewFooterView {
         configureLabel()
         stackView.addArrangedSubview(Spacer(height: 8))
         configureButton()
-        frame.size.height = 500
+        stackView.addArrangedSubview(Spacer(height: 16))
     }
 
     func removeButton() {

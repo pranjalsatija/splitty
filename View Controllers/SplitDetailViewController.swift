@@ -17,19 +17,19 @@ class SplitDetailViewController: UIViewController, StoryboardInstantiatable {
     var list: List! {
         get {
             switch mode {
-            case .edit(let list), .readOnly(let list):
+            case .editList(let list), .readOnly(let list):
                 return list
             }
         } set {
-            if case .edit = mode {
-                mode = .edit(newValue)
+            if case .editList = mode {
+                mode = .editList(newValue)
             } else {
                 update()
             }
         }
     }
 
-    var mode: Mode = .edit(nil) {
+    var mode: Mode = .editList(nil) {
         didSet {
             update()
         }
@@ -152,7 +152,7 @@ private extension SplitDetailViewController {
 extension SplitDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         switch mode {
-        case .edit:
+        case .editList:
             return true
         case .readOnly:
             return false
@@ -227,7 +227,7 @@ extension SplitDetailViewController: ScanBarcodeViewControllerDelegate {
 // MARK: ScanBarcodeViewControllerDelegate
 extension SplitDetailViewController {
     enum Mode {
-        case edit(List!)
+        case editList(List!)
         case readOnly(List!)
     }
 }
